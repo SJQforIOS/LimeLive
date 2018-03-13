@@ -1,0 +1,44 @@
+//
+//  yingke.pch
+//  InKe
+//
+//  Created by sjq on 17/8/25.
+//  Copyright © 2017年 sjq. All rights reserved.
+//
+
+#ifndef yingke_pch
+#define yingke_pch
+
+#import "Masonry.h"
+#import "AFNetworking.h"
+#import "SXTMacros.h"
+#import "YYKit.h"
+#import "APIConfig.h"
+#import "MJExtension.h"
+#import "UIImageView+SDWebImage.h"
+#import "UIViewController+SLHUD.h"
+#import "NSObject+ALinHUD.h"
+#import "UIView+Toast.h"
+
+#import <CocoaLumberjack/CocoaLumberjack.h>
+
+#import "UIColor+HMCategory.h"
+#import "UVCacheManager.h"
+#import "MJRefresh.h"
+#import "UVNetworkHelper.h"
+
+#import "FNButton.h"
+#import "FNAlertHelper.h"
+
+
+#ifdef DEBUG
+static DDLogLevel ddLogLevel = DDLogLevelVerbose; // 内测日志级别 DDLogLevelVerbose
+#define DEBUGASSERT(condition, ...)     NSAssert(condition, __VA_ARGS__)
+#else
+static DDLogLevel ddLogLevel = DDLogLevelInfo; // appstore级别 DDLogLevelInfo
+#define DEBUGASSERT(condition, ...)
+#define NSLog(...)
+#endif
+
+
+#endif /* yingke_pch */
