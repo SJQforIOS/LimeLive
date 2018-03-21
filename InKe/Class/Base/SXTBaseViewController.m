@@ -37,11 +37,23 @@
     
     
     if (type == FNNavationBarType_Green) {
+        if (IOS10) {
+            [navBar setHidden:NO];
+        } else {
+            [navBar setUserInteractionEnabled:YES];
+        }
         self.navigationController.navigationBar.barTintColor = RGB(0, 216, 201);
         [self setBarTintColor:navBar color:[UIColor whiteColor]];
+        [self.navigationItem setHidesBackButton:NO];
     } else if (type == FNNavationBarType_Normal) {
+        if (IOS10) {
+            [navBar setHidden:NO];
+        } else {
+            [navBar setUserInteractionEnabled:YES];
+        }
         self.navigationController.navigationBar.barTintColor = RGB(255, 255, 255);
         [self setBarTintColor:navBar color:[UIColor blackColor]];
+        [self.navigationItem setHidesBackButton:NO];
     } else {
         if (IOS10) {
             [navBar setHidden:YES];

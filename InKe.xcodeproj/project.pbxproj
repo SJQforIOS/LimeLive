@@ -81,6 +81,13 @@
 		E4337EEB2056B18E0091E059 /* FNUIActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = E4337EE92056B18E0091E059 /* FNUIActionSheet.m */; };
 		E4337F062056B6D60091E059 /* PSTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4337F022056B6D60091E059 /* PSTAlertController.m */; };
 		E4337F072056B6D60091E059 /* FNAlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E4337F052056B6D60091E059 /* FNAlertHelper.m */; };
+		E436880E2061FBFA0041E58E /* SXTSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E436880D2061FBFA0041E58E /* SXTSetViewController.m */; };
+		E43688122061FF160041E58E /* SXTSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E43688102061FF160041E58E /* SXTSetTableViewCell.m */; };
+		E43688132061FF160041E58E /* SXTSetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E43688112061FF160041E58E /* SXTSetTableViewCell.xib */; };
+		E4368817206208CE0041E58E /* SXTSetLogoffTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4368815206208CE0041E58E /* SXTSetLogoffTableViewCell.m */; };
+		E4368818206208CE0041E58E /* SXTSetLogoffTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4368816206208CE0041E58E /* SXTSetLogoffTableViewCell.xib */; };
+		E436881C20623B4D0041E58E /* SXTRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E436881A20623B4D0041E58E /* SXTRegisterViewController.m */; };
+		E436881D20623B4D0041E58E /* SXTRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E436881B20623B4D0041E58E /* SXTRegisterViewController.xib */; };
 		E45E6B6E20464C2A0003BA57 /* SXTEditUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E45E6B6C20464C2A0003BA57 /* SXTEditUserViewController.m */; };
 		E45E6B6F20464C2A0003BA57 /* SXTEditUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E45E6B6D20464C2A0003BA57 /* SXTEditUserViewController.xib */; };
 		E45E6B722046587B0003BA57 /* FNButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E45E6B712046587B0003BA57 /* FNButton.m */; };
@@ -239,6 +246,17 @@
 		E4337F032056B6D60091E059 /* FNAlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNAlertHelper.h; sourceTree = "<group>"; };
 		E4337F042056B6D60091E059 /* PSTAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTAlertController.h; sourceTree = "<group>"; };
 		E4337F052056B6D60091E059 /* FNAlertHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNAlertHelper.m; sourceTree = "<group>"; };
+		E436880C2061FBFA0041E58E /* SXTSetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTSetViewController.h; sourceTree = "<group>"; };
+		E436880D2061FBFA0041E58E /* SXTSetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTSetViewController.m; sourceTree = "<group>"; };
+		E436880F2061FF160041E58E /* SXTSetTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTSetTableViewCell.h; sourceTree = "<group>"; };
+		E43688102061FF160041E58E /* SXTSetTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTSetTableViewCell.m; sourceTree = "<group>"; };
+		E43688112061FF160041E58E /* SXTSetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTSetTableViewCell.xib; sourceTree = "<group>"; };
+		E4368814206208CE0041E58E /* SXTSetLogoffTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTSetLogoffTableViewCell.h; sourceTree = "<group>"; };
+		E4368815206208CE0041E58E /* SXTSetLogoffTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTSetLogoffTableViewCell.m; sourceTree = "<group>"; };
+		E4368816206208CE0041E58E /* SXTSetLogoffTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTSetLogoffTableViewCell.xib; sourceTree = "<group>"; };
+		E436881920623B4D0041E58E /* SXTRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTRegisterViewController.h; sourceTree = "<group>"; };
+		E436881A20623B4D0041E58E /* SXTRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTRegisterViewController.m; sourceTree = "<group>"; };
+		E436881B20623B4D0041E58E /* SXTRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTRegisterViewController.xib; sourceTree = "<group>"; };
 		E45E6B6B20464C2A0003BA57 /* SXTEditUserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTEditUserViewController.h; sourceTree = "<group>"; };
 		E45E6B6C20464C2A0003BA57 /* SXTEditUserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTEditUserViewController.m; sourceTree = "<group>"; };
 		E45E6B6D20464C2A0003BA57 /* SXTEditUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTEditUserViewController.xib; sourceTree = "<group>"; };
@@ -424,6 +442,9 @@
 			children = (
 				7334D4061F6A98F3000F670F /* SXTLoginViewController.h */,
 				7334D4071F6A98F3000F670F /* SXTLoginViewController.m */,
+				E436881920623B4D0041E58E /* SXTRegisterViewController.h */,
+				E436881A20623B4D0041E58E /* SXTRegisterViewController.m */,
+				E436881B20623B4D0041E58E /* SXTRegisterViewController.xib */,
 			);
 			path = VIewController;
 			sourceTree = "<group>";
@@ -902,6 +923,12 @@
 				E4A3B7692047D6A1007FBA5D /* SXTEditUserTitleTableViewCell.h */,
 				E4A3B76A2047D6A1007FBA5D /* SXTEditUserTitleTableViewCell.m */,
 				E4A3B76B2047D6A1007FBA5D /* SXTEditUserTitleTableViewCell.xib */,
+				E436880F2061FF160041E58E /* SXTSetTableViewCell.h */,
+				E43688102061FF160041E58E /* SXTSetTableViewCell.m */,
+				E43688112061FF160041E58E /* SXTSetTableViewCell.xib */,
+				E4368814206208CE0041E58E /* SXTSetLogoffTableViewCell.h */,
+				E4368815206208CE0041E58E /* SXTSetLogoffTableViewCell.m */,
+				E4368816206208CE0041E58E /* SXTSetLogoffTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -922,6 +949,8 @@
 				E45E6B6B20464C2A0003BA57 /* SXTEditUserViewController.h */,
 				E45E6B6C20464C2A0003BA57 /* SXTEditUserViewController.m */,
 				E45E6B6D20464C2A0003BA57 /* SXTEditUserViewController.xib */,
+				E436880C2061FBFA0041E58E /* SXTSetViewController.h */,
+				E436880D2061FBFA0041E58E /* SXTSetViewController.m */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -1049,9 +1078,12 @@
 				730710171F667D6B00E699D0 /* SXTLiveCell.xib in Resources */,
 				736FBD3B1F67D420002350F8 /* SXTLiveChatViewController.xib in Resources */,
 				738CD5C61F4FF60700C6062D /* Assets.xcassets in Resources */,
+				E43688132061FF160041E58E /* SXTSetTableViewCell.xib in Resources */,
 				E4A3B76D2047D6A1007FBA5D /* SXTEditUserTitleTableViewCell.xib in Resources */,
+				E4368818206208CE0041E58E /* SXTSetLogoffTableViewCell.xib in Resources */,
 				E490E19920454C4E00F50A1A /* SXTMeSetTableViewCell.xib in Resources */,
 				7334D4191F6A9E6A000F670F /* user.plist in Resources */,
+				E436881D20623B4D0041E58E /* SXTRegisterViewController.xib in Resources */,
 				E4A3B7682047D671007FBA5D /* SXTEditUserHeadImageTableViewCell.xib in Resources */,
 				7334D4181F6A9E6A000F670F /* loginmovie.mp4 in Resources */,
 				7334D4161F6A9E6A000F670F /* danmu.plist in Resources */,
@@ -1138,6 +1170,7 @@
 			files = (
 				7396D5721F6B6EF900F9278D /* NSString+HMCategory.m in Sources */,
 				738210921F53BC550074E1C0 /* SXTMeViewController.m in Sources */,
+				E4368817206208CE0041E58E /* SXTSetLogoffTableViewCell.m in Sources */,
 				7334D40E1F6A9CF8000F670F /* NSObject+ALinHUD.m in Sources */,
 				7396D5731F6B6EF900F9278D /* NSURL+HMCategory.m in Sources */,
 				736FBFB01F680AD2002350F8 /* LFLivePreview.m in Sources */,
@@ -1146,6 +1179,7 @@
 				730710161F667D6B00E699D0 /* SXTLiveCell.m in Sources */,
 				7396D5741F6B6EF900F9278D /* UIColor+HMCategory.m in Sources */,
 				7396D5711F6B6EF900F9278D /* UVCacheManager.m in Sources */,
+				E436881C20623B4D0041E58E /* SXTRegisterViewController.m in Sources */,
 				738CD60E1F50174E00C6062D /* ViewController.m in Sources */,
 				738210891F53BBF50074E1C0 /* SXTBaseViewController.m in Sources */,
 				7307101A1F66866800E699D0 /* UIImageView+SDWebImage.m in Sources */,
@@ -1158,6 +1192,7 @@
 				E42E642E2057726F00962C2E /* NTESDevice.m in Sources */,
 				738CD60A1F4FF89000C6062D /* AppDelegate.m in Sources */,
 				7334D4001F6A553D000F670F /* SXTMiaoBoModel.m in Sources */,
+				E43688122061FF160041E58E /* SXTSetTableViewCell.m in Sources */,
 				E45E6B6E20464C2A0003BA57 /* SXTEditUserViewController.m in Sources */,
 				730710071F6672FB00E699D0 /* SXTBaseHandler.m in Sources */,
 				7382109A1F53F6800074E1C0 /* SXTLaunchViewController.m in Sources */,
@@ -1178,6 +1213,7 @@
 				E4A3B76C2047D6A1007FBA5D /* SXTEditUserTitleTableViewCell.m in Sources */,
 				738CD5BB1F4FF60700C6062D /* main.m in Sources */,
 				7396D57F1F6BC16100F9278D /* UVNetworkHelper.m in Sources */,
+				E436880E2061FBFA0041E58E /* SXTSetViewController.m in Sources */,
 				73F62E8D1F62956E00C7AC97 /* SXTLive.m in Sources */,
 				E490E18D2044F58100F50A1A /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				7334D40F1F6A9CF8000F670F /* UIViewController+SLHUD.m in Sources */,

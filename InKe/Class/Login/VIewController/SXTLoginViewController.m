@@ -10,6 +10,7 @@
 #import <IJKMediaFramework/IJKMediaFramework.h>
 #import "SXTMainViewController.h"
 #import "SXTTabBarViewController.h"
+#import "SXTRegisterViewController.h"
 
 @interface SXTLoginViewController ()
 
@@ -98,15 +99,9 @@
 
 - (void)setup
 {
-    
-    
     [self initObserver];
-    
     [self initUI];
-    
     [self.player prepareToPlay];
-    
-    
 }
 
 - (void)initUI
@@ -208,23 +203,28 @@
     }];
     [QQLogBtn setTarget:self action:@selector(changTypeLoginAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    UILabel *messageLabel = [[UILabel alloc] init];
-    messageLabel.text = @"登录即代表同意我家直播服务和隐私条款";
-    messageLabel.textAlignment = NSTextAlignmentCenter;
-    messageLabel.font = [UIFont systemFontOfSize:10];
-    messageLabel.textColor = [UIColor colorWithHexString:@"FFFFFF"];
-    [bottomView addSubview:messageLabel];
-    [messageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(bottomView.mas_bottom).offset(-5);
-        make.centerX.equalTo(bottomView.mas_centerX);
-        make.width.equalTo(bottomView.mas_width);
-        make.height.equalTo(@12);
-    }];
+//    UILabel *messageLabel = [[UILabel alloc] init];
+//    messageLabel.text = @"登录即代表同意我家直播服务和隐私条款";
+//    messageLabel.textAlignment = NSTextAlignmentCenter;
+//    messageLabel.font = [UIFont systemFontOfSize:10];
+//    messageLabel.textColor = [UIColor colorWithHexString:@"FFFFFF"];
+//    [bottomView addSubview:messageLabel];
+//    [messageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.equalTo(bottomView.mas_bottom).offset(-5);
+//        make.centerX.equalTo(bottomView.mas_centerX);
+//        make.width.equalTo(bottomView.mas_width);
+//        make.height.equalTo(@12);
+//    }];
 }
 
 - (void)changTypeLoginAction:(UIButton *)sender
 {
     NSLog(@"sender.tag:%ld",sender.tag);
+    if (sender.tag == 3) {
+        SXTRegisterViewController *registerVC = [[SXTRegisterViewController alloc] init];
+        [self per];
+    }
+    
 }
 
 - (void)initObserver

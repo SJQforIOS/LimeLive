@@ -7,10 +7,10 @@
 //
 
 #import "SXTMeViewController.h"
-#import "SXTLoginViewController.h"
 #import "SXTHeadView.h"
 #import "SXTMeSetTableViewCell.h"
 #import "SXTEditUserViewController.h"
+#import "SXTSetViewController.h"
 
 
 @interface SXTMeViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -48,7 +48,7 @@
     _headView.backgroundColor = [UIColor greenColor];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    _tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64) style:(UITableViewStylePlain)];
+    _tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64) style:(UITableViewStyleGrouped)];
     [self.view addSubview:_tableview];
     _tableview.delegate = self;
     _tableview.dataSource = self;
@@ -119,49 +119,23 @@
     return 0.01;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    
+    UIView* myView = [[UIView alloc] init];
+    return myView;
+    
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        //跳转到设置
+        SXTSetViewController *setVC = [[SXTSetViewController alloc] init];
+        [self.navigationController pushViewController:setVC animated:YES];
+    }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- (void)btnLogin:(id)sender
-{
-    SXTLoginViewController *login = [[SXTLoginViewController alloc] init];
-    [self.navigationController pushViewController:login animated:YES];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

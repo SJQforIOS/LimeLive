@@ -26,7 +26,7 @@
 }
 
 + (UIButton *)commonWhiteBackButton {
-    return [FNButton commonBackButtonWithColor:[UIColor whiteColor]];
+    return [FNButton commonBackButtonWithColorAndImage:[UIColor whiteColor]];
 }
 
 + (UIButton *)commonBackButtonWithColor:(UIColor *)color {
@@ -35,6 +35,29 @@
     //guidanceArrow
     [button setImage:[UIImage imageNamed:@"icon_navigation_back"] forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:@"icon_navigation_back"] forState:UIControlStateHighlighted];
+    
+    [button setTitle:@"返回" forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:kBackLabelFontSize];
+    
+    button.exclusiveTouch = YES;
+    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    button.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+    button.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+    
+    
+    [button setTitleColor:color forState:UIControlStateNormal];
+    [button setTitleColor:[color colorWithAlphaComponent:0.5] forState:UIControlStateHighlighted];
+    [button setTitleColor:[color colorWithAlphaComponent:0.5] forState:UIControlStateDisabled];
+    button.titleLabel.font = [UIFont systemFontOfSize:kBackLabelFontSize];
+    return button;
+}
+
++ (UIButton *)commonBackButtonWithColorAndImage:(UIColor *)color {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setFrame:CGRectMake(0, 0, kButtonFrameWidth, kButtonFrameHeight)];
+    //guidanceArrow
+    [button setImage:[UIImage imageNamed:@"icon_navigation_back_white"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"icon_navigation_back_white"] forState:UIControlStateHighlighted];
     
     [button setTitle:@"返回" forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:kBackLabelFontSize];

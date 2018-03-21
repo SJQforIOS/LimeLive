@@ -20,6 +20,7 @@
     // Override point for customization after application launch.
     
     SXTTabBarViewController *mainVC = [[SXTTabBarViewController alloc] init];
+    mainVC.view.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = mainVC;
     
     [self checkNetworkStates];
