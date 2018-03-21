@@ -11,6 +11,7 @@
 #import "SXTMainViewController.h"
 #import "SXTTabBarViewController.h"
 #import "SXTRegisterViewController.h"
+#import "SXTBaseNavViewController.h"
 
 @interface SXTLoginViewController ()
 
@@ -219,12 +220,11 @@
 
 - (void)changTypeLoginAction:(UIButton *)sender
 {
-    NSLog(@"sender.tag:%ld",sender.tag);
     if (sender.tag == 3) {
         SXTRegisterViewController *registerVC = [[SXTRegisterViewController alloc] init];
-        [self per];
+        SXTBaseNavViewController *regisNav = [[SXTBaseNavViewController alloc] initWithRootViewController:registerVC];
+        [self presentViewController:regisNav animated:YES completion:nil];
     }
-    
 }
 
 - (void)initObserver

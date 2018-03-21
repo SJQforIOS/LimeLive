@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *messageButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
-
 @end
 
 @implementation SXTRegisterViewController
@@ -28,6 +27,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self setNavigationBarWithType:FNNavationBarType_Green];
 }
 
 - (void)setupNav {
@@ -49,7 +49,7 @@
 }
 
 - (void)onBackButtonPressed:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
