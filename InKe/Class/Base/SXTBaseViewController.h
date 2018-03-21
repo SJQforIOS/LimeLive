@@ -11,6 +11,7 @@
 typedef NS_ENUM(NSInteger, FNNavationBarType) {
     FNNavationBarType_Normal,          // 默认的，白色毛玻璃透明 (有线)
     FNNavationBarType_Green,           // 主题绿色 (无线) 【首页】
+    FNNavationBarType_clear,           // 透明 (无线)
 };
 
 @interface SXTBaseViewController : UIViewController

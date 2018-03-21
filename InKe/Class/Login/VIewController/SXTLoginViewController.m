@@ -64,7 +64,7 @@
     [super viewWillAppear:animated];
     
     //隐藏nbv
-    self.navigationController.navigationBarHidden = YES;
+    [self setNavigationBarWithType:FNNavationBarType_clear];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

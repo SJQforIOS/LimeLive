@@ -7,6 +7,7 @@
 //
 
 #import "SXTBaseViewController.h"
+#import <objc/runtime.h>
 
 @interface SXTBaseViewController ()
 
@@ -38,10 +39,25 @@
     if (type == FNNavationBarType_Green) {
         self.navigationController.navigationBar.barTintColor = RGB(0, 216, 201);
         [self setBarTintColor:navBar color:[UIColor whiteColor]];
-    } else {
+    } else if (type == FNNavationBarType_Normal) {
         self.navigationController.navigationBar.barTintColor = RGB(255, 255, 255);
         [self setBarTintColor:navBar color:[UIColor blackColor]];
+    } else {
+        if (IOS10) {
+            [navBar setHidden:YES];
+        } else {
+            [navBar setUserInteractionEnabled:NO];
+        }
+        [self lt_setBackgroundColor:[UIColor clearColor]];
+        [self setBarTintColor:navBar color:[UIColor clearColor]];
+        [self.navigationItem setHidesBackButton:YES];
     }
+}
+
+- (void)lt_setBackgroundColor:(UIColor *)backgroundColor
+{
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBarTintColor:backgroundColor];
 }
 
 - (void)setBarTintColor:(UINavigationBar *)navBar color:(UIColor *)color {
