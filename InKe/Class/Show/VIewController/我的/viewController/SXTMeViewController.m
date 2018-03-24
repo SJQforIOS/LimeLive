@@ -20,6 +20,7 @@
 @property (nonatomic, strong) SXTHeadView *headView;
 @property (nonatomic, strong) NSArray *datasource;
 @property (nonatomic, strong) SXTNoLoginHeadView *headLoginView;
+@property (nonatomic, assign) BOOL isLogin;
 
 @end
 
@@ -42,6 +43,11 @@
 - (void)setupData
 {
     _datasource = @[@[@{ @"icon":@"ic_my_readingrecord",@"title":@"观看记录"}],@[@{ @"icon":@"ic_my_readingrecord",@"title":@"设置"}]];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *usertName = [defaults objectForKey:@"userName"];
+    //NSString *userPass = [defaults objectForKey:@"userPass"];
+    _isLogin = usertName.length != 0;
 }
 
 - (void)initUI
@@ -58,8 +64,12 @@
     _tableview.delegate = self;
     _tableview.dataSource = self;
     _tableview.backgroundColor = RGB(244, 244, 244);
-    //_tableview.tableHeaderView = _headView;
-    _tableview.tableHeaderView = _headLoginView;
+    
+    if (_isLogin) {
+        _tableview.tableHeaderView = _headView;
+    } else {
+        _tableview.tableHeaderView = _headLoginView;
+    }
     
     [_tableview registerNib:[UINib nibWithNibName:@"SXTMeSetTableViewCell" bundle:nil] forCellReuseIdentifier:@"SXTMeSetTableViewCell"];
 }
@@ -138,10 +148,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    if (indexPath.section == 1 && indexPath.row == 0) {
-        //跳转到设置
-        SXTSetViewController *setVC = [[SXTSetViewController alloc] init];
-        [self.navigationController pushViewController:setVC animated:YES];
+    if (_isLogin == NO) {
+        [self.view makeToast:@"请先登录" duration:1 position:CSToastPositionCenter];
+        return;
+    } else {
+        if (indexPath.section == 1 && indexPath.row == 0) {
+            //跳转到设置
+            SXTSetViewController *setVC = [[SXTSetViewController alloc] init];
+            [self.navigationController pushViewController:setVC animated:YES];
+        }
     }
 }
 

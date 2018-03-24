@@ -133,6 +133,12 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     if (indexPath.section == 4) {
+        //清除登陆数据
+        NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+        [defaults removeObjectForKey:@"userName"];
+        [defaults removeObjectForKey:@"userPass"];
+        [defaults synchronize];
+        
         SXTLoginViewController *login = [[SXTLoginViewController alloc] init];
         [self.navigationController pushViewController:login animated:YES];
     }

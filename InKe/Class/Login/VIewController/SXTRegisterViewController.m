@@ -56,10 +56,6 @@
 
 - (IBAction)nextAction:(UIButton *)sender {
     
-    SXTLoginNextViewController *loginNext = [[SXTLoginNextViewController alloc] init];
-    loginNext.account = self.accountTextFile.text;
-    [self.navigationController pushViewController:loginNext animated:YES];
-    
     NSString *uAccount = self.accountTextFile.text;
     if (uAccount.length == 0) {
         [self.view makeToast:@"输入不能为空！" duration:1 position:CSToastPositionCenter];
