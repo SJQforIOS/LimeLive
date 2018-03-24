@@ -11,13 +11,15 @@
 #import "SXTMeSetTableViewCell.h"
 #import "SXTEditUserViewController.h"
 #import "SXTSetViewController.h"
-
+#import "SXTNoLoginHeadView.h"
+#import "SXTLoginViewController.h"
 
 @interface SXTMeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableview;
 @property (nonatomic, strong) SXTHeadView *headView;
 @property (nonatomic, strong) NSArray *datasource;
+@property (nonatomic, strong) SXTNoLoginHeadView *headLoginView;
 
 @end
 
@@ -45,7 +47,10 @@
 - (void)initUI
 {
     _headView = [[SXTHeadView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 150)];
-    _headView.backgroundColor = [UIColor greenColor];
+    _headView.backgroundColor = [UIColor whiteColor];
+    
+    _headLoginView = [[SXTNoLoginHeadView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 90)];
+    _headLoginView.backgroundColor = [UIColor whiteColor];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     _tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64) style:(UITableViewStyleGrouped)];
@@ -53,7 +58,8 @@
     _tableview.delegate = self;
     _tableview.dataSource = self;
     _tableview.backgroundColor = RGB(244, 244, 244);
-    _tableview.tableHeaderView = _headView;
+    //_tableview.tableHeaderView = _headView;
+    _tableview.tableHeaderView = _headLoginView;
     
     [_tableview registerNib:[UINib nibWithNibName:@"SXTMeSetTableViewCell" bundle:nil] forCellReuseIdentifier:@"SXTMeSetTableViewCell"];
 }
@@ -73,6 +79,11 @@
     
     _headView.fensiUsrBlock = ^{
         
+    };
+    
+    _headLoginView.goLoginBlock = ^{
+        SXTLoginViewController *login = [[SXTLoginViewController alloc] init];
+        [weakSelf.navigationController pushViewController:login animated:YES];
     };
 }
 
@@ -104,14 +115,9 @@
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 50;
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 10;
+    return 20;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -119,11 +125,14 @@
     return 0.01;
 }
 
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView* myView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
+    return myView;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    
     UIView* myView = [[UIView alloc] init];
     return myView;
-    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

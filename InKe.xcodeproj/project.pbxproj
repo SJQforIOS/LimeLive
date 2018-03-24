@@ -99,6 +99,14 @@
 		E4A3B7682047D671007FBA5D /* SXTEditUserHeadImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4A3B7662047D671007FBA5D /* SXTEditUserHeadImageTableViewCell.xib */; };
 		E4A3B76C2047D6A1007FBA5D /* SXTEditUserTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A3B76A2047D6A1007FBA5D /* SXTEditUserTitleTableViewCell.m */; };
 		E4A3B76D2047D6A1007FBA5D /* SXTEditUserTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4A3B76B2047D6A1007FBA5D /* SXTEditUserTitleTableViewCell.xib */; };
+		E4AE869620661E0F00543D4F /* SXTRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AE869520661E0F00543D4F /* SXTRateViewController.m */; };
+		E4AE869F206621D800543D4F /* SXTLoginNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AE869D206621D800543D4F /* SXTLoginNextViewController.m */; };
+		E4AE86A0206621D800543D4F /* SXTLoginNextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4AE869E206621D800543D4F /* SXTLoginNextViewController.xib */; };
+		E4AE86A4206643B600543D4F /* SXTForgetPassWorldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AE86A2206643B600543D4F /* SXTForgetPassWorldViewController.m */; };
+		E4AE86A5206643B600543D4F /* SXTForgetPassWorldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4AE86A3206643B600543D4F /* SXTForgetPassWorldViewController.xib */; };
+		E4AE86A9206656CA00543D4F /* SXTSetPassWorldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AE86A7206656CA00543D4F /* SXTSetPassWorldViewController.m */; };
+		E4AE86AA206656CA00543D4F /* SXTSetPassWorldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4AE86A8206656CA00543D4F /* SXTSetPassWorldViewController.xib */; };
+		E4AE86AD20665EDB00543D4F /* SXTNoLoginHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AE86AC20665EDB00543D4F /* SXTNoLoginHeadView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -275,6 +283,19 @@
 		E4A3B7692047D6A1007FBA5D /* SXTEditUserTitleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTEditUserTitleTableViewCell.h; sourceTree = "<group>"; };
 		E4A3B76A2047D6A1007FBA5D /* SXTEditUserTitleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTEditUserTitleTableViewCell.m; sourceTree = "<group>"; };
 		E4A3B76B2047D6A1007FBA5D /* SXTEditUserTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTEditUserTitleTableViewCell.xib; sourceTree = "<group>"; };
+		E4AE869420661E0F00543D4F /* SXTRateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTRateViewController.h; sourceTree = "<group>"; };
+		E4AE869520661E0F00543D4F /* SXTRateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTRateViewController.m; sourceTree = "<group>"; };
+		E4AE869C206621D800543D4F /* SXTLoginNextViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTLoginNextViewController.h; sourceTree = "<group>"; };
+		E4AE869D206621D800543D4F /* SXTLoginNextViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTLoginNextViewController.m; sourceTree = "<group>"; };
+		E4AE869E206621D800543D4F /* SXTLoginNextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTLoginNextViewController.xib; sourceTree = "<group>"; };
+		E4AE86A1206643B600543D4F /* SXTForgetPassWorldViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTForgetPassWorldViewController.h; sourceTree = "<group>"; };
+		E4AE86A2206643B600543D4F /* SXTForgetPassWorldViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTForgetPassWorldViewController.m; sourceTree = "<group>"; };
+		E4AE86A3206643B600543D4F /* SXTForgetPassWorldViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTForgetPassWorldViewController.xib; sourceTree = "<group>"; };
+		E4AE86A6206656CA00543D4F /* SXTSetPassWorldViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTSetPassWorldViewController.h; sourceTree = "<group>"; };
+		E4AE86A7206656CA00543D4F /* SXTSetPassWorldViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTSetPassWorldViewController.m; sourceTree = "<group>"; };
+		E4AE86A8206656CA00543D4F /* SXTSetPassWorldViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTSetPassWorldViewController.xib; sourceTree = "<group>"; };
+		E4AE86AB20665EDB00543D4F /* SXTNoLoginHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTNoLoginHeadView.h; sourceTree = "<group>"; };
+		E4AE86AC20665EDB00543D4F /* SXTNoLoginHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTNoLoginHeadView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -445,6 +466,17 @@
 				E436881920623B4D0041E58E /* SXTRegisterViewController.h */,
 				E436881A20623B4D0041E58E /* SXTRegisterViewController.m */,
 				E436881B20623B4D0041E58E /* SXTRegisterViewController.xib */,
+				E4AE869420661E0F00543D4F /* SXTRateViewController.h */,
+				E4AE869520661E0F00543D4F /* SXTRateViewController.m */,
+				E4AE869C206621D800543D4F /* SXTLoginNextViewController.h */,
+				E4AE869D206621D800543D4F /* SXTLoginNextViewController.m */,
+				E4AE869E206621D800543D4F /* SXTLoginNextViewController.xib */,
+				E4AE86A1206643B600543D4F /* SXTForgetPassWorldViewController.h */,
+				E4AE86A2206643B600543D4F /* SXTForgetPassWorldViewController.m */,
+				E4AE86A3206643B600543D4F /* SXTForgetPassWorldViewController.xib */,
+				E4AE86A6206656CA00543D4F /* SXTSetPassWorldViewController.h */,
+				E4AE86A7206656CA00543D4F /* SXTSetPassWorldViewController.m */,
+				E4AE86A8206656CA00543D4F /* SXTSetPassWorldViewController.xib */,
 			);
 			path = VIewController;
 			sourceTree = "<group>";
@@ -907,6 +939,8 @@
 			children = (
 				E490E1922044F9A000F50A1A /* SXTHeadView.h */,
 				E490E1932044F9A000F50A1A /* SXTHeadView.m */,
+				E4AE86AB20665EDB00543D4F /* SXTNoLoginHeadView.h */,
+				E4AE86AC20665EDB00543D4F /* SXTNoLoginHeadView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1074,9 +1108,11 @@
 				7382108E1F53BC3D0074E1C0 /* SXTMainViewController.xib in Resources */,
 				738210931F53BC550074E1C0 /* SXTMeViewController.xib in Resources */,
 				7382109B1F53F6800074E1C0 /* SXTLaunchViewController.xib in Resources */,
+				E4AE86AA206656CA00543D4F /* SXTSetPassWorldViewController.xib in Resources */,
 				738210AA1F5401780074E1C0 /* SXTNearViewController.xib in Resources */,
 				730710171F667D6B00E699D0 /* SXTLiveCell.xib in Resources */,
 				736FBD3B1F67D420002350F8 /* SXTLiveChatViewController.xib in Resources */,
+				E4AE86A5206643B600543D4F /* SXTForgetPassWorldViewController.xib in Resources */,
 				738CD5C61F4FF60700C6062D /* Assets.xcassets in Resources */,
 				E43688132061FF160041E58E /* SXTSetTableViewCell.xib in Resources */,
 				E4A3B76D2047D6A1007FBA5D /* SXTEditUserTitleTableViewCell.xib in Resources */,
@@ -1087,6 +1123,7 @@
 				E4A3B7682047D671007FBA5D /* SXTEditUserHeadImageTableViewCell.xib in Resources */,
 				7334D4181F6A9E6A000F670F /* loginmovie.mp4 in Resources */,
 				7334D4161F6A9E6A000F670F /* danmu.plist in Resources */,
+				E4AE86A0206621D800543D4F /* SXTLoginNextViewController.xib in Resources */,
 				738CD5C41F4FF60700C6062D /* Main.storyboard in Resources */,
 				7334D4171F6A9E6A000F670F /* login_video.mp4 in Resources */,
 				E45E6B6F20464C2A0003BA57 /* SXTEditUserViewController.xib in Resources */,
@@ -1172,6 +1209,8 @@
 				738210921F53BC550074E1C0 /* SXTMeViewController.m in Sources */,
 				E4368817206208CE0041E58E /* SXTSetLogoffTableViewCell.m in Sources */,
 				7334D40E1F6A9CF8000F670F /* NSObject+ALinHUD.m in Sources */,
+				E4AE86AD20665EDB00543D4F /* SXTNoLoginHeadView.m in Sources */,
+				E4AE869620661E0F00543D4F /* SXTRateViewController.m in Sources */,
 				7396D5731F6B6EF900F9278D /* NSURL+HMCategory.m in Sources */,
 				736FBFB01F680AD2002350F8 /* LFLivePreview.m in Sources */,
 				E42E642A2057720500962C2E /* UIImage+NTES.m in Sources */,
@@ -1186,8 +1225,10 @@
 				E490E19820454C4E00F50A1A /* SXTMeSetTableViewCell.m in Sources */,
 				E4337F062056B6D60091E059 /* PSTAlertController.m in Sources */,
 				73F62E861F62905D00C7AC97 /* HttpTool.m in Sources */,
+				E4AE86A9206656CA00543D4F /* SXTSetPassWorldViewController.m in Sources */,
 				E42E648F2057777900962C2E /* UIImage+Utilities.m in Sources */,
 				E42E648C2057766800962C2E /* NTESFileLocationHelper.m in Sources */,
+				E4AE869F206621D800543D4F /* SXTLoginNextViewController.m in Sources */,
 				7382108D1F53BC3D0074E1C0 /* SXTMainViewController.m in Sources */,
 				E42E642E2057726F00962C2E /* NTESDevice.m in Sources */,
 				738CD60A1F4FF89000C6062D /* AppDelegate.m in Sources */,
@@ -1202,6 +1243,7 @@
 				736FBD3A1F67D420002350F8 /* SXTLiveChatViewController.m in Sources */,
 				E4A3B7672047D671007FBA5D /* SXTEditUserHeadImageTableViewCell.m in Sources */,
 				736FBFB71F681D60002350F8 /* UIView+YYAdd.m in Sources */,
+				E4AE86A4206643B600543D4F /* SXTForgetPassWorldViewController.m in Sources */,
 				73F62E8F1F62956E00C7AC97 /* SXTAdvertise.m in Sources */,
 				738210961F53BD6F0074E1C0 /* SXTBaseNavViewController.m in Sources */,
 				E4337EEB2056B18E0091E059 /* FNUIActionSheet.m in Sources */,
