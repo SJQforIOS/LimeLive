@@ -28,6 +28,13 @@
 //    [self.iconView downloadImage:[NSString stringWithFormat:@"%@%@",IMAGE_HOST,live.creator.portrait] placeholder:@"default_room"];
 //}
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    //隐藏nbv
+    [self setNavigationBarWithType:FNNavationBarType_clear];
+}
+
+
 - (void)setMiaoboModel:(SXTMiaoBoModel *)miaoboModel
 {
     _miaoboModel = miaoboModel;

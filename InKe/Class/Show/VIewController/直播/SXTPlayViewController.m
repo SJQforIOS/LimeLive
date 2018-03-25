@@ -50,10 +50,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     //隐藏nbv
-    self.navigationController.navigationBarHidden = YES;
-    
+    [self setNavigationBarWithType:FNNavationBarType_clear];
     //注册通知
     [self installMovieNotificationObservers];
     //自动播放
@@ -69,7 +67,6 @@
     //关闭直播
     [self.player shutdown];
     [self removeMovieNotificationObservers];
-    
     [self.closeBtn removeFromSuperview];
 }
 

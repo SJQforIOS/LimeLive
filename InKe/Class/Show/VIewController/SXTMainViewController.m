@@ -20,7 +20,6 @@
 @implementation SXTMainViewController
 
 - (SXTMainTopView *)topView {
-    
     if (!_topView) {
         _topView = [[SXTMainTopView alloc] initWithFrame:CGRectMake(0, 0, 200, 50) titleNames:self.dataList];
         
@@ -29,7 +28,6 @@
             @strongify(self);
             CGPoint point = CGPointMake(tag * SCREEN_WIDTH, self.contentScrollView.contentOffset.y);
             [self.contentScrollView setContentOffset:point animated:YES];
-            
         };
     }
     return _topView;
@@ -47,6 +45,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self initUI];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    //隐藏nbv
+    [self setNavigationBarWithType:FNNavationBarType_Green];
 }
 
 - (void)initUI
