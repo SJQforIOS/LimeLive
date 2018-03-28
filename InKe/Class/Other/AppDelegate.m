@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SXTTabBarViewController.h"
+#import "SXTLocationManager.h"
 
 @interface AppDelegate ()
 
@@ -26,6 +27,11 @@
     [self checkNetworkStates];
     
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    
+    //定位
+    [[SXTLocationManager sharedManager] getGps:^(NSString *lat, NSString *lon) {
+        
+    }];
     
     return YES;
 }

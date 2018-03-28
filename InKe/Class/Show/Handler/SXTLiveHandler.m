@@ -10,18 +10,18 @@
 #import "AFNetworking/AFNetworking.h"
 #import "SXTLive.h"
 #import "SXTMiaoBoModel.h"
+#import "SXTNearModel.h"
 
 @implementation SXTLiveHandler
 
-+ (void)executeGetHotLiveTaskWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed
++ (void)executeGetHotLiveTaskWithSuccess:(NSInteger)page and:(SuccessBlock)success failed:(FailedBlock)failed
 {
-    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     // 以二进制方式来传输
     manager.responseSerializer = [AFCompoundResponseSerializer serializer];
     // 可以接受的类型 (可选)
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    NSString *utf = [API_HotLive stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *utf = [[NSString stringWithFormat:@"%@?page=%ld",API_HotLive, (long)page] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [manager GET:utf parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
@@ -39,9 +39,27 @@
     
 }
 
-+ (void)executeGetNearLiveTaskWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed
++ (void)executeGetNearLiveTaskWithSuccess:(NSInteger)page and:(SuccessBlock)success failed:(FailedBlock)failed
 {
-    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    // 以二进制方式来传输
+    manager.responseSerializer = [AFCompoundResponseSerializer serializer];
+    // 可以接受的类型 (可选)
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    NSString *utf = [[NSString stringWithFormat:@"%@?page=%ld",API_NearLive, (long)page] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [manager GET:utf parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        
+        NSMutableArray *dataSourceArr = [[NSMutableArray alloc]init];
+        for (NSDictionary *arr in dic[@"data"][@"list"]) {
+            SXTNearModel *article = [SXTNearModel modelWithDict:arr];
+            [dataSourceArr addObject:article];//赋值
+        }
+        success(dataSourceArr);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failed(error);
+    }];
 }
 
 + (void)executeGetAdvertiseTaskWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed

@@ -1,30 +1,30 @@
 //
-//  SXTPlayViewController.m
+//  SXTNearPlayViewController.m
 //  InKe
 //
-//  Created by sjq on 17/9/12.
-//  Copyright © 2017年 sjq. All rights reserved.
+//  Created by SJQ on 2018/3/28.
+//  Copyright © 2018年 sjq. All rights reserved.
 //
 
-#import "SXTPlayViewController.h"
+#import "SXTNearPlayViewController.h"
 #import <IJKMediaFramework/IJKMediaFramework.h>
-#import "SXTLiveChatViewController.h"
+#import "SXTNearLiveChatViewController.h"
 #import "AppDelegate.h"
 
-@interface SXTPlayViewController ()
+@interface SXTNearPlayViewController ()
 
 @property(atomic, retain) id<IJKMediaPlayback> player;
 @property (nonatomic, strong) UIImageView * blurImageView;
 @property (nonatomic, strong) UIButton * closeBtn;//关闭按钮
-@property (nonatomic, strong) SXTLiveChatViewController * liveChatVC;
+@property (nonatomic, strong) SXTNearLiveChatViewController * liveChatVC;
 
 @end
 
-@implementation SXTPlayViewController
+@implementation SXTNearPlayViewController
 
-- (SXTLiveChatViewController *)liveChatVC {
+- (SXTNearLiveChatViewController *)liveChatVC {
     if (!_liveChatVC) {
-        _liveChatVC = [[SXTLiveChatViewController alloc] init];
+        _liveChatVC = [[SXTNearLiveChatViewController alloc] init];
     }
     return _liveChatVC;
 }
@@ -76,6 +76,7 @@
     [self initPlayer];
     [self initUI];//添加毛玻璃效果
     [self addChildVC];
+    
 }
 
 - (void)addChildVC {
@@ -84,7 +85,7 @@
     [self.liveChatVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-    self.liveChatVC.miaoboModel = self.miaoBoModel;
+    self.liveChatVC.nearModel = self.nearModel;
 }
 
 - (void)initUI
@@ -93,7 +94,7 @@
     
     self.blurImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     self.blurImageView.userInteractionEnabled = YES;
-    [self.blurImageView downloadImage:[NSString stringWithFormat:@"%@",self.miaoBoModel.bigpic] placeholder:@"default_room"];
+    [self.blurImageView downloadImage:[NSString stringWithFormat:@"%@",self.nearModel.photo] placeholder:@"default_room"];
     [self.view addSubview:self.blurImageView];
     
     //创建毛玻璃效果
@@ -109,7 +110,7 @@
 - (void)initPlayer
 {
     IJKFFOptions *options = [IJKFFOptions optionsByDefault];
-    IJKFFMoviePlayerController *player = [[IJKFFMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:self.miaoBoModel.flv] withOptions:options];
+    IJKFFMoviePlayerController *player = [[IJKFFMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:self.nearModel.flv] withOptions:options];
     self.player = player;
     self.player.view.frame = self.view.bounds;
     self.player.shouldAutoplay = YES;
@@ -243,47 +244,5 @@
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

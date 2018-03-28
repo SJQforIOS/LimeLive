@@ -18,14 +18,14 @@
 #define SERVER_HOST @"http://live.9158.com/Fans/"
 
 //热门直播
-#define API_HotLive @"http://live.9158.com/Fans/GetHotLive?page=%d"
+#define API_HotLive @"http://live.9158.com/Fans/GetHotLive"
 
 /*
  *我家直播后台数据
  */
 
 //附近的人
-#define API_NearLive @"api/live/near_recommend" //?uid=85149891&latitude=40.090562&longitude=116.413353
+#define API_NearLive @"http://live.9158.com/Room/GetNewRoomOnline"
 
 //广告地址
 #define API_Advertise @"advertise/get"

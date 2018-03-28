@@ -9,14 +9,12 @@
 #import "SXTBaseViewController.h"
 #import "SXTLive.h"
 #import "SXTMiaoBoModel.h"
-
 /*
- *播放页
+ *关注，热门 播放页
  */
 
 @interface SXTPlayViewController : SXTBaseViewController
 
 @property (nonatomic, strong) SXTLive *live;
 @property (nonatomic, strong) SXTMiaoBoModel *miaoBoModel;
-
 @end

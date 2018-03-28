@@ -29,6 +29,7 @@
 
 #import "FNButton.h"
 #import "FNAlertHelper.h"
+#import "ALinRefreshGifHeader.h"
 
 
 #ifdef DEBUG

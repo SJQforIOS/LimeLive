@@ -19,7 +19,7 @@ static NSString * identifier = @"SXTLiveCell";
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray<SXTMiaoBoModel *> * datalist;
-
+@property (nonatomic, assign) NSInteger currentPage;
 
 @end
 
@@ -41,10 +41,10 @@ static NSString * identifier = @"SXTLiveCell";
     
     [self initUI];
     
-    [self.tableView.mj_header beginRefreshing];//进入就刷新
     //每20秒刷新一次
+    __weak typeof(self) weakSelf = self;
     [NSTimer scheduledTimerWithTimeInterval:20 block:^(NSTimer * _Nonnull timer) {
-        [self loadData];
+        [weakSelf loadData];
     } repeats:YES];
     
 }
@@ -57,42 +57,53 @@ static NSString * identifier = @"SXTLiveCell";
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
-    __weak id weakself = self;
-    //下拉 上拉刷新
-    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [weakself loadArticleDataisRefresh:YES];
+    __weak typeof(self) weakSelf = self;
+    // 设置header和footer
+    self.tableView.mj_header = [ALinRefreshGifHeader headerWithRefreshingBlock:^{
+        weakSelf.currentPage = 1;
+        [weakSelf loadArticleDataisRefresh];
     }];
-    
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        [weakself loadArticleDataisRefresh:NO];
+        weakSelf.currentPage++;
+        [weakSelf loadArticleDataisRefresh];
     }];
-    
+    [self.tableView.mj_header beginRefreshing];
 }
 
 //有上拉刷新  YES
-- (void)loadArticleDataisRefresh:(BOOL)isRefresh
-{
-    if (isRefresh) {
-        NSLog(@"下拉刷新");
-        [self loadData];
-    } else {
-        NSLog(@"上拉刷新");
-        [self loadData];
-    }
-    
-    
-    [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshing];//闲置状态
+- (void)loadArticleDataisRefresh {
+    //有上拉刷新  YES
+    __weak typeof(self) weakSelf = self;
+    [SXTLiveHandler executeGetHotLiveTaskWithSuccess:self.currentPage and:^(id obj) {
+        [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
+        if (weakSelf.datalist.count == 0) {
+            weakSelf.datalist = obj;
+        } else {
+            [weakSelf.datalist addObjectsFromArray:obj];
+        }
+        [weakSelf.tableView reloadData];
+    } failed:^(id obj) {
+        [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
+        weakSelf.currentPage--;
+        [weakSelf showHint:@"网络异常"];
+    }];
 }
 
 - (void)loadData
 {
-    [SXTLiveHandler executeGetHotLiveTaskWithSuccess:^(id obj) {
-        //获取到数据
-        self.datalist = obj;
-        [self.tableView reloadData];
+    __weak typeof(self) weakSelf = self;
+    [SXTLiveHandler executeGetHotLiveTaskWithSuccess:1 and:^(id obj) {
+        [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
+        weakSelf.datalist = obj;
+        [weakSelf.tableView reloadData];
     } failed:^(id obj) {
-        
+        [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
+        weakSelf.currentPage--;
+        [weakSelf showHint:@"网络异常"];
     }];
 }
 
