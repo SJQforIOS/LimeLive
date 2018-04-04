@@ -85,13 +85,6 @@ static NSString * identifier = @"SXTLiveCell";
     SXTPlayViewController *playVC = [[SXTPlayViewController alloc] init];
     playVC.miaoBoModel = miao;
     [self.navigationController pushViewController:playVC animated:YES];
-    
-    /*系统自带的播放器播放不了直播内容
-     
-     MPMoviePlayerViewController * movieVC = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL URLWithString:live.streamAddr]];
-     
-     [self presentViewController:movieVC animated:YES completion:nil];
-     */
 }
 
 

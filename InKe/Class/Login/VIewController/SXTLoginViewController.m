@@ -46,22 +46,6 @@
     return _player;
 }
 
-- (UIButton *)quickBtn
-{
-    if (!_quickBtn) {
-        UIButton *btn = [[UIButton alloc] init];
-        btn.backgroundColor = [UIColor clearColor];
-        btn.layer.borderWidth = 1;
-        btn.layer.borderColor = [UIColor yellowColor].CGColor;
-        [btn setTitle:@"登录" forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor whiteColor]  forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(loginSuccess) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:btn];
-        _quickBtn = btn;
-    }
-    return _quickBtn;
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -107,13 +91,6 @@
 
 - (void)initUI
 {
-    [self.quickBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).offset(40);
-        make.right.equalTo(self.view.mas_right).offset(-40);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-260);
-        make.height.equalTo(@40);
-    }];
-    
     UIView *bottomView = [[UIView alloc] init];
     bottomView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:bottomView];
@@ -203,19 +180,6 @@
         make.height.equalTo(@60);
     }];
     [QQLogBtn setTarget:self action:@selector(changTypeLoginAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-//    UILabel *messageLabel = [[UILabel alloc] init];
-//    messageLabel.text = @"登录即代表同意我家直播服务和隐私条款";
-//    messageLabel.textAlignment = NSTextAlignmentCenter;
-//    messageLabel.font = [UIFont systemFontOfSize:10];
-//    messageLabel.textColor = [UIColor colorWithHexString:@"FFFFFF"];
-//    [bottomView addSubview:messageLabel];
-//    [messageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.equalTo(bottomView.mas_bottom).offset(-5);
-//        make.centerX.equalTo(bottomView.mas_centerX);
-//        make.width.equalTo(bottomView.mas_width);
-//        make.height.equalTo(@12);
-//    }];
 }
 
 - (void)changTypeLoginAction:(UIButton *)sender
@@ -252,36 +216,9 @@
     [self.player play];
 }
 
-// 登录成功
-- (void)loginSuccess
-{
-    [self showHint:@"登录成功"];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.player stop];
-        [self.player.view removeFromSuperview];
-        self.player = nil;
-        self.view.window.rootViewController = [[SXTTabBarViewController alloc] init];
-        //[self.navigationController popViewControllerAnimated:YES];
-    });
-}
-
-
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -45,17 +45,6 @@
     [self setupUIView];
 }
 
-//- (void)setupData {
-//    __weak typeof(self) weakSelf = self;
-//    [SXTLiveHandler executeGetNearLiveTaskWithSuccess:self.currentPage and:^(id obj) {
-//        //获取到数据
-//        weakSelf.datasource = obj;
-//        [weakSelf.collectView reloadData];
-//    } failed:^(id obj) {
-//        [weakSelf showHint:@"网络异常"];
-//    }];
-//}
-
 - (void)setupUIView {
     NSInteger count = SCREEN_WIDTH / kItemWidth;
     CGFloat etraWidth = (SCREEN_WIDTH - kMargin * (count + 1)) / count;
