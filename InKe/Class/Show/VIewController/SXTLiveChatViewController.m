@@ -7,14 +7,17 @@
 //
 
 #import "SXTLiveChatViewController.h"
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
 
 @interface SXTLiveChatViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UIButton *yinPiaoBtn;
-@property (weak, nonatomic) IBOutlet UIImageView *shareButton;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (weak, nonatomic) IBOutlet UILabel *peopleCountLB;
 @property (nonatomic, strong) dispatch_source_t timer;
+@property (nonatomic, strong) UIButton *focusBtn;
 
 
 @end
@@ -54,6 +57,21 @@
     } repeats:YES];
     
     [self initTimer];
+    [self setupUIView];
+}
+
+- (void)setupUIView {
+    _focusBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    [self.view addSubview:_focusBtn];
+    _focusBtn.frame = CGRectMake(105, 34, 48, 24);
+    _focusBtn.backgroundColor = UIColorFromRGB(0x2EDED0);
+    _focusBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    _focusBtn.layer.cornerRadius = 10;
+    [_focusBtn setTitle:@"关注" forState:(UIControlStateNormal)];
+    [_focusBtn setTitle:@"已关注" forState:(UIControlStateSelected)];
+    [_focusBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_focusBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    [_focusBtn addTarget:self action:@selector(focusActionss:) forControlEvents:(UIControlEventTouchUpInside)];
 }
 
 -(int)getRandomNumber:(int)from to:(int)to
@@ -119,6 +137,68 @@
     }];
 }
 
+#pragma mark - Action
+
+- (IBAction)shareAction:(id)sender {
+    NSLog(@"点击了分享");
+    
+    //1、创建分享参数
+    NSArray* imageArray = @[_miaoboModel.bigpic];
+    if (imageArray) {
+        NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+        NSString *shareBody = [NSString stringWithFormat:@"你关注的%@ @了你，想和你聊会天！%@",_miaoboModel.myname,_miaoboModel.flv];
+        [shareParams SSDKSetupShareParamsByText:shareBody
+                                         images:imageArray
+                                            url:[NSURL URLWithString:@"http://mob.com"]
+                                          title:@"分享标题"
+                                           type:SSDKContentTypeAuto];
+        //有的平台要客户端分享需要加此方法，例如微博
+        [shareParams SSDKEnableUseClientShare];
+        
+        //2、分享（可以弹出我们的分享菜单和编辑界面）
+        SSUIShareActionSheetController *sheet = [ShareSDK showShareActionSheet:nil
+                                 items:nil
+                           shareParams:shareParams
+                   onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+                       
+                       switch (state) {
+                           case SSDKResponseStateSuccess:
+                           {
+                               UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                                                   message:nil
+                                                                                  delegate:nil
+                                                                         cancelButtonTitle:@"确定"
+                                                                         otherButtonTitles:nil];
+                               [alertView show];
+                               break;
+                           }
+                           case SSDKResponseStateFail:
+                           {
+                               UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                                                                               message:[NSString stringWithFormat:@"%@",error]
+                                                                              delegate:nil
+                                                                     cancelButtonTitle:@"OK"
+                                                                     otherButtonTitles:nil, nil];
+                               [alert show];
+                               break;
+                           }
+                           default:
+                               break;
+                       }
+                   }
+         ];
+        [sheet.directSharePlatforms addObject:@(SSDKPlatformTypeSinaWeibo)];
+    }
+}
+
+- (void)focusActionss:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        [self.view makeToast:@"已关注" duration:1 position:CSToastPositionCenter];
+    } else {
+        [self.view makeToast:@"已取消关注" duration:1 position:CSToastPositionCenter];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

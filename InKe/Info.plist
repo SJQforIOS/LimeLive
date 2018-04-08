@@ -16,10 +16,46 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>tencent100371282</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx4868b35061f87885</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MOBAppKey</key>
+	<string>2506f1cb12500</string>
+	<key>MOBAppSecret</key>
+	<string>c2959f9cbcd929bbc92358b41723edd6</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>App需要您的同意,才能访问相机</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>App需要您的同意,才能开启定位</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>microphoneDesciption</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>App需要您的同意,才能访问相册</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -39,18 +75,23 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>App需要您的同意,才能访问相机</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>microphoneDesciption</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>App需要您的同意,才能访问相册</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>App需要您的同意,才能开启定位</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>sinaweibo</string>
+		<string>sinaweibohd</string>
+		<string>sinaweibosso</string>
+		<string>sinaweibohdsso</string>
+		<string>weibosdk</string>
+		<string>weibosdk2.5</string>
+		<string>wechat</string>
+		<string>weixin</string>
+		<string>mqqOpensdkSSoLogin</string>
+		<string>mqqopensdkapiV2</string>
+		<string>mqqopensdkapiV2</string>
+		<string>wtloginmqq2</string>
+		<string>mqq</string>
+		<string>mqqapi</string>
+		<string>timapi</string>
+	</array>
 </dict>
 </plist>
