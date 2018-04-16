@@ -13,6 +13,8 @@
 #import "SXTSetViewController.h"
 #import "SXTNoLoginHeadView.h"
 #import "SXTLoginViewController.h"
+#import "SXTMeFansViewController.h"
+#import "SXTMeFocuseViewController.h"
 
 @interface SXTMeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -38,6 +40,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setNavigationBarWithType:FNNavationBarType_Green];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }
 
 - (void)setupData
@@ -84,11 +87,13 @@
     };
     
     _headView.focusUserBlock = ^{
-        
+        SXTMeFocuseViewController *meFocuse = [[SXTMeFocuseViewController alloc] init];
+        [weakSelf.navigationController pushViewController:meFocuse animated:YES];
     };
     
     _headView.fensiUsrBlock = ^{
-        
+        SXTMeFansViewController *meFanse = [[SXTMeFansViewController alloc] init];
+        [weakSelf.navigationController pushViewController:meFanse animated:YES];
     };
     
     _headLoginView.goLoginBlock = ^{

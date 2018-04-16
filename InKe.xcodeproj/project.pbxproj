@@ -138,6 +138,10 @@
 		E4AE86A9206656CA00543D4F /* SXTSetPassWorldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AE86A7206656CA00543D4F /* SXTSetPassWorldViewController.m */; };
 		E4AE86AA206656CA00543D4F /* SXTSetPassWorldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4AE86A8206656CA00543D4F /* SXTSetPassWorldViewController.xib */; };
 		E4AE86AD20665EDB00543D4F /* SXTNoLoginHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AE86AC20665EDB00543D4F /* SXTNoLoginHeadView.m */; };
+		E4E05B7A20849A12005AE5C4 /* SXTMeFocuseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E05B7920849A12005AE5C4 /* SXTMeFocuseViewController.m */; };
+		E4E05B7D20849A21005AE5C4 /* SXTMeFansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E05B7C20849A21005AE5C4 /* SXTMeFansViewController.m */; };
+		E4E05B812084A117005AE5C4 /* SXTMeUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E05B7F2084A117005AE5C4 /* SXTMeUserTableViewCell.m */; };
+		E4E05B822084A117005AE5C4 /* SXTMeUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E05B802084A117005AE5C4 /* SXTMeUserTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -369,6 +373,13 @@
 		E4AE86A8206656CA00543D4F /* SXTSetPassWorldViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTSetPassWorldViewController.xib; sourceTree = "<group>"; };
 		E4AE86AB20665EDB00543D4F /* SXTNoLoginHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTNoLoginHeadView.h; sourceTree = "<group>"; };
 		E4AE86AC20665EDB00543D4F /* SXTNoLoginHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTNoLoginHeadView.m; sourceTree = "<group>"; };
+		E4E05B7820849A12005AE5C4 /* SXTMeFocuseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTMeFocuseViewController.h; sourceTree = "<group>"; };
+		E4E05B7920849A12005AE5C4 /* SXTMeFocuseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTMeFocuseViewController.m; sourceTree = "<group>"; };
+		E4E05B7B20849A21005AE5C4 /* SXTMeFansViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTMeFansViewController.h; sourceTree = "<group>"; };
+		E4E05B7C20849A21005AE5C4 /* SXTMeFansViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTMeFansViewController.m; sourceTree = "<group>"; };
+		E4E05B7E2084A117005AE5C4 /* SXTMeUserTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTMeUserTableViewCell.h; sourceTree = "<group>"; };
+		E4E05B7F2084A117005AE5C4 /* SXTMeUserTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTMeUserTableViewCell.m; sourceTree = "<group>"; };
+		E4E05B802084A117005AE5C4 /* SXTMeUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTMeUserTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1091,6 +1102,9 @@
 				E4368814206208CE0041E58E /* SXTSetLogoffTableViewCell.h */,
 				E4368815206208CE0041E58E /* SXTSetLogoffTableViewCell.m */,
 				E4368816206208CE0041E58E /* SXTSetLogoffTableViewCell.xib */,
+				E4E05B7E2084A117005AE5C4 /* SXTMeUserTableViewCell.h */,
+				E4E05B7F2084A117005AE5C4 /* SXTMeUserTableViewCell.m */,
+				E4E05B802084A117005AE5C4 /* SXTMeUserTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -1113,6 +1127,10 @@
 				E45E6B6D20464C2A0003BA57 /* SXTEditUserViewController.xib */,
 				E436880C2061FBFA0041E58E /* SXTSetViewController.h */,
 				E436880D2061FBFA0041E58E /* SXTSetViewController.m */,
+				E4E05B7820849A12005AE5C4 /* SXTMeFocuseViewController.h */,
+				E4E05B7920849A12005AE5C4 /* SXTMeFocuseViewController.m */,
+				E4E05B7B20849A21005AE5C4 /* SXTMeFansViewController.h */,
+				E4E05B7C20849A21005AE5C4 /* SXTMeFansViewController.m */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -1348,6 +1366,7 @@
 				7382109B1F53F6800074E1C0 /* SXTLaunchViewController.xib in Resources */,
 				E46AB84420692A9E00A62B10 /* SXTNearLiveCollectionViewCell.xib in Resources */,
 				E4AE86AA206656CA00543D4F /* SXTSetPassWorldViewController.xib in Resources */,
+				E4E05B822084A117005AE5C4 /* SXTMeUserTableViewCell.xib in Resources */,
 				738210AA1F5401780074E1C0 /* SXTNearViewController.xib in Resources */,
 				E49F83892074690B00562996 /* ShareSDKUI.bundle in Resources */,
 				730710171F667D6B00E699D0 /* SXTLiveCell.xib in Resources */,
@@ -1469,6 +1488,7 @@
 				738CD60E1F50174E00C6062D /* ViewController.m in Sources */,
 				738210891F53BBF50074E1C0 /* SXTBaseViewController.m in Sources */,
 				7307101A1F66866800E699D0 /* UIImageView+SDWebImage.m in Sources */,
+				E4E05B7D20849A21005AE5C4 /* SXTMeFansViewController.m in Sources */,
 				E490E19820454C4E00F50A1A /* SXTMeSetTableViewCell.m in Sources */,
 				E4337F062056B6D60091E059 /* PSTAlertController.m in Sources */,
 				73F62E861F62905D00C7AC97 /* HttpTool.m in Sources */,
@@ -1498,10 +1518,12 @@
 				7307100A1F66743300E699D0 /* SXTLiveHandler.m in Sources */,
 				73F62E8E1F62956E00C7AC97 /* SXTCreator.m in Sources */,
 				E4337F072056B6D60091E059 /* FNAlertHelper.m in Sources */,
+				E4E05B812084A117005AE5C4 /* SXTMeUserTableViewCell.m in Sources */,
 				738210861F53AA0A0074E1C0 /* SXTTabBar.m in Sources */,
 				E46AB83D206908EA00A62B10 /* SXTLocationManager.m in Sources */,
 				738210831F53A9DD0074E1C0 /* SXTTabBarViewController.m in Sources */,
 				E4A3B76C2047D6A1007FBA5D /* SXTEditUserTitleTableViewCell.m in Sources */,
+				E4E05B7A20849A12005AE5C4 /* SXTMeFocuseViewController.m in Sources */,
 				738CD5BB1F4FF60700C6062D /* main.m in Sources */,
 				7396D57F1F6BC16100F9278D /* UVNetworkHelper.m in Sources */,
 				E436880E2061FBFA0041E58E /* SXTSetViewController.m in Sources */,

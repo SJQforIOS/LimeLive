@@ -49,8 +49,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    //隐藏nbv
     [self setNavigationBarWithType:FNNavationBarType_Green];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }
 
 - (void)initUI

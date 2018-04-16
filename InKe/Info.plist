@@ -93,5 +93,7 @@
 		<string>mqqapi</string>
 		<string>timapi</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>
