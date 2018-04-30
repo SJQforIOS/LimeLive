@@ -21,7 +21,7 @@
 #define API_HotLive @"http://live.9158.com/Fans/GetHotLive"
 
 /*
- *我家直播后台数据
+ *云鲤直播后台数据
  */
 
 //附近的人
@@ -38,5 +38,10 @@
 //rtmp://live.hkstv.hk.lxdns.com/live/hks
 //rtmp://live.hkstv.hk.lxdns.com:1935/live/sunjiaqi
 //rtmp://p68ed453b.live.126.net/live/484ff1cfe86a496799f6548b7febd29d?wsSecret=cedf71973e8fd4e3f68f8ba418eab01c&wsTime=1516673905
+
+//云鲤直播后台登陆系统
+
+//登陆
+#define YL_LoginManger @"http://live.9158.com/Fans/"
 
 @end

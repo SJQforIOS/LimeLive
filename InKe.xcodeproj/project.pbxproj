@@ -142,6 +142,7 @@
 		E4E05B7D20849A21005AE5C4 /* SXTMeFansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E05B7C20849A21005AE5C4 /* SXTMeFansViewController.m */; };
 		E4E05B812084A117005AE5C4 /* SXTMeUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E05B7F2084A117005AE5C4 /* SXTMeUserTableViewCell.m */; };
 		E4E05B822084A117005AE5C4 /* SXTMeUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E05B802084A117005AE5C4 /* SXTMeUserTableViewCell.xib */; };
+		E4FDF93A209596DA003B5899 /* SXTLoginHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FDF939209596DA003B5899 /* SXTLoginHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -380,6 +381,8 @@
 		E4E05B7E2084A117005AE5C4 /* SXTMeUserTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTMeUserTableViewCell.h; sourceTree = "<group>"; };
 		E4E05B7F2084A117005AE5C4 /* SXTMeUserTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTMeUserTableViewCell.m; sourceTree = "<group>"; };
 		E4E05B802084A117005AE5C4 /* SXTMeUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTMeUserTableViewCell.xib; sourceTree = "<group>"; };
+		E4FDF938209596DA003B5899 /* SXTLoginHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTLoginHandler.h; sourceTree = "<group>"; };
+		E4FDF939209596DA003B5899 /* SXTLoginHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTLoginHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -550,6 +553,8 @@
 			isa = PBXGroup;
 			children = (
 				7334D4101F6A9E6A000F670F /* Resource */,
+				E4FDF938209596DA003B5899 /* SXTLoginHandler.h */,
+				E4FDF939209596DA003B5899 /* SXTLoginHandler.m */,
 			);
 			path = Handler;
 			sourceTree = "<group>";
@@ -1524,6 +1529,7 @@
 				738210831F53A9DD0074E1C0 /* SXTTabBarViewController.m in Sources */,
 				E4A3B76C2047D6A1007FBA5D /* SXTEditUserTitleTableViewCell.m in Sources */,
 				E4E05B7A20849A12005AE5C4 /* SXTMeFocuseViewController.m in Sources */,
+				E4FDF93A209596DA003B5899 /* SXTLoginHandler.m in Sources */,
 				738CD5BB1F4FF60700C6062D /* main.m in Sources */,
 				7396D57F1F6BC16100F9278D /* UVNetworkHelper.m in Sources */,
 				E436880E2061FBFA0041E58E /* SXTSetViewController.m in Sources */,

@@ -72,7 +72,7 @@
     [self.bodyView addSubview:_userIdLabel];
     _userIdLabel.font = [UIFont systemFontOfSize:12];
     _userIdLabel.textColor = [UIColor grayColor];
-    _userIdLabel.text = @"映客号: 188818188181";
+    _userIdLabel.text = @"青柠号: 188818188181";
     
     _sexImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sexm"]];
     [_sexImageView sizeToFit];
