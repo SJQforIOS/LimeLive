@@ -55,20 +55,29 @@
 
 //获取验证码
 - (IBAction)YZMAction:(id)sender {
-    self.YZMButton.alpha = 0.5;
-    self.YZMButton.enabled = NO;
-    [self.view makeToast:@"验证码已发送到你的邮箱" duration:1 position:CSToastPositionCenter];
-    
+    NSString *email = _YZMTextFile.text;
+    __weak typeof(self) weakSelf = self;
+    [SXTLoginHandler sendActivateCode:email and:^(id obj) {
+        weakSelf.YZMButton.alpha = 0.5;
+        weakSelf.YZMButton.enabled = NO;
+        [weakSelf.view makeToast:@"验证码已发送到你的邮箱" duration:1 position:CSToastPositionCenter];
+    } failed:^(id obj) {
+        NSLog(@"%@",obj);
+    }];
 }
 
 //下一步按钮
 - (IBAction)nextSetPassAction:(id)sender {
     //验证判断
-    
-    
-    //跳转页面
-    SXTSetPassWorldViewController *setPassVC = [[SXTSetPassWorldViewController alloc] init];
-    [self.navigationController pushViewController:setPassVC animated:YES];
+    if (_YZMTextFile.text.length == 0) {
+        [self.view makeToast:@"输入不能为空！" duration:1 position:CSToastPositionCenter];
+    } else {
+        //跳转页面
+        SXTSetPassWorldViewController *setPassVC = [[SXTSetPassWorldViewController alloc] init];
+        setPassVC.account = self.account;
+        setPassVC.YZM = _YZMTextFile.text;
+        [self.navigationController pushViewController:setPassVC animated:YES];
+    } 
 }
 
 

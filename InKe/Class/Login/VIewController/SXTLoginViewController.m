@@ -12,6 +12,7 @@
 #import "SXTTabBarViewController.h"
 #import "SXTRegisterViewController.h"
 #import "SXTBaseNavViewController.h"
+#import "SXTUserRegisterViewController.h"
 
 @interface SXTLoginViewController ()
 

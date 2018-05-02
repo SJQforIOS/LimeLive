@@ -100,6 +100,8 @@
 		E46AB84320692A9E00A62B10 /* SXTNearLiveCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E46AB84120692A9E00A62B10 /* SXTNearLiveCollectionViewCell.m */; };
 		E46AB84420692A9E00A62B10 /* SXTNearLiveCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E46AB84220692A9E00A62B10 /* SXTNearLiveCollectionViewCell.xib */; };
 		E46AB847206936A600A62B10 /* SXTNearModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E46AB846206936A600A62B10 /* SXTNearModel.m */; };
+		E46FCCF12098046B006227BD /* SXTUserRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FCCEF2098046B006227BD /* SXTUserRegisterViewController.m */; };
+		E46FCCF22098046B006227BD /* SXTUserRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E46FCCF02098046B006227BD /* SXTUserRegisterViewController.xib */; };
 		E490E18D2044F58100F50A1A /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = E490E18B2044F58100F50A1A /* UINavigationController+FDFullscreenPopGesture.m */; };
 		E490E1942044F9A000F50A1A /* SXTHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = E490E1932044F9A000F50A1A /* SXTHeadView.m */; };
 		E490E19820454C4E00F50A1A /* SXTMeSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E490E19620454C4E00F50A1A /* SXTMeSetTableViewCell.m */; };
@@ -321,6 +323,9 @@
 		E46AB84220692A9E00A62B10 /* SXTNearLiveCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTNearLiveCollectionViewCell.xib; sourceTree = "<group>"; };
 		E46AB845206936A600A62B10 /* SXTNearModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTNearModel.h; sourceTree = "<group>"; };
 		E46AB846206936A600A62B10 /* SXTNearModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTNearModel.m; sourceTree = "<group>"; };
+		E46FCCEE2098046B006227BD /* SXTUserRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTUserRegisterViewController.h; sourceTree = "<group>"; };
+		E46FCCEF2098046B006227BD /* SXTUserRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTUserRegisterViewController.m; sourceTree = "<group>"; };
+		E46FCCF02098046B006227BD /* SXTUserRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTUserRegisterViewController.xib; sourceTree = "<group>"; };
 		E490E18B2044F58100F50A1A /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		E490E18C2044F58100F50A1A /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		E490E1922044F9A000F50A1A /* SXTHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTHeadView.h; sourceTree = "<group>"; };
@@ -592,6 +597,9 @@
 				E4AE86A6206656CA00543D4F /* SXTSetPassWorldViewController.h */,
 				E4AE86A7206656CA00543D4F /* SXTSetPassWorldViewController.m */,
 				E4AE86A8206656CA00543D4F /* SXTSetPassWorldViewController.xib */,
+				E46FCCEE2098046B006227BD /* SXTUserRegisterViewController.h */,
+				E46FCCEF2098046B006227BD /* SXTUserRegisterViewController.m */,
+				E46FCCF02098046B006227BD /* SXTUserRegisterViewController.xib */,
 			);
 			path = VIewController;
 			sourceTree = "<group>";
@@ -1392,6 +1400,7 @@
 				7334D4181F6A9E6A000F670F /* loginmovie.mp4 in Resources */,
 				7334D4161F6A9E6A000F670F /* danmu.plist in Resources */,
 				E4AE86A0206621D800543D4F /* SXTLoginNextViewController.xib in Resources */,
+				E46FCCF22098046B006227BD /* SXTUserRegisterViewController.xib in Resources */,
 				738CD5C41F4FF60700C6062D /* Main.storyboard in Resources */,
 				7334D4171F6A9E6A000F670F /* login_video.mp4 in Resources */,
 				E45E6B6F20464C2A0003BA57 /* SXTEditUserViewController.xib in Resources */,
@@ -1525,6 +1534,7 @@
 				E4337F072056B6D60091E059 /* FNAlertHelper.m in Sources */,
 				E4E05B812084A117005AE5C4 /* SXTMeUserTableViewCell.m in Sources */,
 				738210861F53AA0A0074E1C0 /* SXTTabBar.m in Sources */,
+				E46FCCF12098046B006227BD /* SXTUserRegisterViewController.m in Sources */,
 				E46AB83D206908EA00A62B10 /* SXTLocationManager.m in Sources */,
 				738210831F53A9DD0074E1C0 /* SXTTabBarViewController.m in Sources */,
 				E4A3B76C2047D6A1007FBA5D /* SXTEditUserTitleTableViewCell.m in Sources */,

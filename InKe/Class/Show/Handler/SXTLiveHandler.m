@@ -35,8 +35,6 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failed(error);
     }];
-    
-    
 }
 
 + (void)executeGetNearLiveTaskWithSuccess:(NSInteger)page and:(SuccessBlock)success failed:(FailedBlock)failed
@@ -62,7 +60,7 @@
     }];
 }
 
-+ (void)executeGetAdvertiseTaskWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed
++ (void)setFocusUserTaskWithSuccess:(NSString *)account andLiveUser:(NSString *)liveUser and:(SuccessBlock)success failed:(FailedBlock)failed
 {
     
 }

@@ -30,6 +30,7 @@
 #import "FNButton.h"
 #import "FNAlertHelper.h"
 #import "ALinRefreshGifHeader.h"
+#import "SXTLoginHandler.h"
 
 
 #ifdef DEBUG

@@ -41,7 +41,6 @@
 
 //云鲤直播后台登陆系统
 
-//登陆
-#define YL_LoginManger @"http://live.9158.com/Fans/"
+#define YL_LoginManger @"192.168.1.107:8080/TelecastApi"
 
 @end

@@ -9,12 +9,15 @@
 #import "SXTRegisterViewController.h"
 #import "SXTRateViewController.h"
 #import "SXTLoginNextViewController.h"
+#import "SXTUserRegisterViewController.h"
 
 @interface SXTRegisterViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *accountTextFile;
 @property (weak, nonatomic) IBOutlet UIButton *messageButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet UIButton *registerBtn;         //注册按钮
+
 
 @end
 
@@ -67,6 +70,13 @@
         [self.navigationController pushViewController:loginNext animated:YES];
     }
 }
+
+//跳转注册页面
+- (IBAction)registerAction:(id)sender {
+    SXTUserRegisterViewController *userRectVC = [[SXTUserRegisterViewController alloc] init];
+    [self.navigationController pushViewController:userRectVC animated:YES];
+}
+
 
 - (void)onBackButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

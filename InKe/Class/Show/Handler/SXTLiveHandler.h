@@ -26,9 +26,8 @@
 + (void)executeGetNearLiveTaskWithSuccess:(NSInteger)page and:(SuccessBlock)success failed:(FailedBlock)failed;
 
 /**
- *  获取广告页
+ *  关注
  */
-
-+ (void)executeGetAdvertiseTaskWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed;
++ (void)setFocusUserTaskWithSuccess:(NSString *)account andLiveUser:(NSString *)liveUser and:(SuccessBlock)success failed:(FailedBlock)failed;
 
 @end

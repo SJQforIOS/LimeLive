@@ -62,17 +62,20 @@
     if (self.passwordLabel.text.length == 0) {
         [self.view makeToast:@"请输入密码！" duration:1 position:CSToastPositionCenter];
     } else {
+        __weak typeof(self) weakSelf = self;
         //登陆接口验证
-        
-        //存系统偏好设置
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:self.account forKey:@"userName"];
-        [defaults setObject:self.passwordLabel.text forKey:@"userPass"];
-        
-        [self showHint:@"登录成功"];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            self.view.window.rootViewController = [[SXTTabBarViewController alloc] init];
-        });
+        [SXTLoginHandler loginAccount:_nameLable.text passwd:self.passwordLabel.text and:^(id obj) {
+            //存系统偏好设置
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:self.account forKey:@"userName"];
+            [defaults setObject:self.passwordLabel.text forKey:@"userPass"];
+            [weakSelf showHint:@"登录成功"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                weakSelf.view.window.rootViewController = [[SXTTabBarViewController alloc] init];
+            });
+        } failed:^(id obj) {
+            NSLog(@"%@",obj);
+        }];
     }
 }
 

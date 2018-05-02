@@ -10,4 +10,7 @@
 
 @interface SXTSetPassWorldViewController : SXTBaseViewController
 
+@property (nonatomic, strong) NSString *account;
+@property (nonatomic, strong) NSString *YZM;
+
 @end
