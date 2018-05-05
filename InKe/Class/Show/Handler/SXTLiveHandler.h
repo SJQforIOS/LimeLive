@@ -26,8 +26,16 @@
 + (void)executeGetNearLiveTaskWithSuccess:(NSInteger)page and:(SuccessBlock)success failed:(FailedBlock)failed;
 
 /**
- *  关注
+ *  关注主播
  */
 + (void)setFocusUserTaskWithSuccess:(NSString *)account andLiveUser:(NSString *)liveUser and:(SuccessBlock)success failed:(FailedBlock)failed;
+/**
+ *  获取关注列表
+ */
++ (void)executeGetFocustListTaskWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed;
+/**
+ *  获取粉丝列表
+ */
++ (void)executeGetFensiListTaskWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed;
 
 @end

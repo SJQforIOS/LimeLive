@@ -24,14 +24,11 @@
                           @"password": passwd,
                           };
     [manager GET:utf parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        success(dic);
+//        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+//        success(dic);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failed(error);
     }];
-    
-    
 }
 
 + (void)sendActivateCode:(NSString *)email and:(SuccessBlock)success failed:(FailedBlock)failed {

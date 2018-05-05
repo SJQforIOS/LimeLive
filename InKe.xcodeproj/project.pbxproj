@@ -100,8 +100,11 @@
 		E46AB84320692A9E00A62B10 /* SXTNearLiveCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E46AB84120692A9E00A62B10 /* SXTNearLiveCollectionViewCell.m */; };
 		E46AB84420692A9E00A62B10 /* SXTNearLiveCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E46AB84220692A9E00A62B10 /* SXTNearLiveCollectionViewCell.xib */; };
 		E46AB847206936A600A62B10 /* SXTNearModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E46AB846206936A600A62B10 /* SXTNearModel.m */; };
+		E46F772E209C39800035F174 /* SXTCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E46F772D209C39800035F174 /* SXTCommentModel.m */; };
 		E46FCCF12098046B006227BD /* SXTUserRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FCCEF2098046B006227BD /* SXTUserRegisterViewController.m */; };
 		E46FCCF22098046B006227BD /* SXTUserRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E46FCCF02098046B006227BD /* SXTUserRegisterViewController.xib */; };
+		E46FCDE1209B0C86006227BD /* SXTLiveChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FCDDF209B0C85006227BD /* SXTLiveChatTableViewCell.m */; };
+		E46FCDE2209B0C86006227BD /* SXTLiveChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E46FCDE0209B0C85006227BD /* SXTLiveChatTableViewCell.xib */; };
 		E490E18D2044F58100F50A1A /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = E490E18B2044F58100F50A1A /* UINavigationController+FDFullscreenPopGesture.m */; };
 		E490E1942044F9A000F50A1A /* SXTHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = E490E1932044F9A000F50A1A /* SXTHeadView.m */; };
 		E490E19820454C4E00F50A1A /* SXTMeSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E490E19620454C4E00F50A1A /* SXTMeSetTableViewCell.m */; };
@@ -323,9 +326,14 @@
 		E46AB84220692A9E00A62B10 /* SXTNearLiveCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTNearLiveCollectionViewCell.xib; sourceTree = "<group>"; };
 		E46AB845206936A600A62B10 /* SXTNearModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTNearModel.h; sourceTree = "<group>"; };
 		E46AB846206936A600A62B10 /* SXTNearModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTNearModel.m; sourceTree = "<group>"; };
+		E46F772C209C39800035F174 /* SXTCommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTCommentModel.h; sourceTree = "<group>"; };
+		E46F772D209C39800035F174 /* SXTCommentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTCommentModel.m; sourceTree = "<group>"; };
 		E46FCCEE2098046B006227BD /* SXTUserRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTUserRegisterViewController.h; sourceTree = "<group>"; };
 		E46FCCEF2098046B006227BD /* SXTUserRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTUserRegisterViewController.m; sourceTree = "<group>"; };
 		E46FCCF02098046B006227BD /* SXTUserRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTUserRegisterViewController.xib; sourceTree = "<group>"; };
+		E46FCDDE209B0C85006227BD /* SXTLiveChatTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTLiveChatTableViewCell.h; sourceTree = "<group>"; };
+		E46FCDDF209B0C85006227BD /* SXTLiveChatTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTLiveChatTableViewCell.m; sourceTree = "<group>"; };
+		E46FCDE0209B0C85006227BD /* SXTLiveChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTLiveChatTableViewCell.xib; sourceTree = "<group>"; };
 		E490E18B2044F58100F50A1A /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		E490E18C2044F58100F50A1A /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		E490E1922044F9A000F50A1A /* SXTHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTHeadView.h; sourceTree = "<group>"; };
@@ -462,6 +470,7 @@
 		7307100C1F667B4600E699D0 /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
+				E46FCDDD209B0C41006227BD /* cell */,
 				7307100D1F667B4600E699D0 /* FocusVC */,
 				7307100E1F667B4600E699D0 /* HotVC */,
 				7307100F1F667B4600E699D0 /* NearVC */,
@@ -921,6 +930,8 @@
 				7334D3FF1F6A553D000F670F /* SXTMiaoBoModel.m */,
 				E46AB845206936A600A62B10 /* SXTNearModel.h */,
 				E46AB846206936A600A62B10 /* SXTNearModel.m */,
+				E46F772C209C39800035F174 /* SXTCommentModel.h */,
+				E46F772D209C39800035F174 /* SXTCommentModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1084,6 +1095,16 @@
 				E46AB83C206908EA00A62B10 /* SXTLocationManager.m */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		E46FCDDD209B0C41006227BD /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				E46FCDDE209B0C85006227BD /* SXTLiveChatTableViewCell.h */,
+				E46FCDDF209B0C85006227BD /* SXTLiveChatTableViewCell.m */,
+				E46FCDE0209B0C85006227BD /* SXTLiveChatTableViewCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		E490E18E2044F96C00F50A1A /* view */ = {
@@ -1389,6 +1410,7 @@
 				736FBD3B1F67D420002350F8 /* SXTLiveChatViewController.xib in Resources */,
 				E4AE86A5206643B600543D4F /* SXTForgetPassWorldViewController.xib in Resources */,
 				738CD5C61F4FF60700C6062D /* Assets.xcassets in Resources */,
+				E46FCDE2209B0C86006227BD /* SXTLiveChatTableViewCell.xib in Resources */,
 				E49F83882074690B00562996 /* ShareSDK.bundle in Resources */,
 				E43688132061FF160041E58E /* SXTSetTableViewCell.xib in Resources */,
 				E4A3B76D2047D6A1007FBA5D /* SXTEditUserTitleTableViewCell.xib in Resources */,
@@ -1500,6 +1522,7 @@
 				E46AB84320692A9E00A62B10 /* SXTNearLiveCollectionViewCell.m in Sources */,
 				E4586682206BBF2000FD607E /* SXTNearPlayViewController.m in Sources */,
 				738CD60E1F50174E00C6062D /* ViewController.m in Sources */,
+				E46FCDE1209B0C86006227BD /* SXTLiveChatTableViewCell.m in Sources */,
 				738210891F53BBF50074E1C0 /* SXTBaseViewController.m in Sources */,
 				7307101A1F66866800E699D0 /* UIImageView+SDWebImage.m in Sources */,
 				E4E05B7D20849A21005AE5C4 /* SXTMeFansViewController.m in Sources */,
@@ -1520,6 +1543,7 @@
 				730710071F6672FB00E699D0 /* SXTBaseHandler.m in Sources */,
 				7382109A1F53F6800074E1C0 /* SXTLaunchViewController.m in Sources */,
 				E490E1942044F9A000F50A1A /* SXTHeadView.m in Sources */,
+				E46F772E209C39800035F174 /* SXTCommentModel.m in Sources */,
 				738210A41F5401650074E1C0 /* SXTHotViewController.m in Sources */,
 				7334D4081F6A98F3000F670F /* SXTLoginViewController.m in Sources */,
 				736FBD3A1F67D420002350F8 /* SXTLiveChatViewController.m in Sources */,

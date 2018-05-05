@@ -43,6 +43,13 @@
  */
 + (void)changeMobileWithActivateCode:(NSString *)mobile and:(SuccessBlock)success failed:(FailedBlock)failed;
 
+/**
+ 检测用户是否已经注册
+
+ @param account 账号邮箱
+ */
++ (void)checkAccountExist:(NSString *)account and:(SuccessBlock)success failed:(FailedBlock)failed;
+
 
 
 @end

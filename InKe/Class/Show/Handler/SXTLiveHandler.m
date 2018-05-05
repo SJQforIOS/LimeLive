@@ -65,4 +65,12 @@
     
 }
 
++ (void)executeGetFocustListTaskWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed {
+    
+}
+
++ (void)executeGetFensiListTaskWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed {
+    
+}
+
 @end

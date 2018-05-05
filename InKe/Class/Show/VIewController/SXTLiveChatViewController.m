@@ -9,8 +9,10 @@
 #import "SXTLiveChatViewController.h"
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKUI/ShareSDK+SSUI.h>
+#import "SXTLiveChatTableViewCell.h"
+#import "SXTCommentModel.h"
 
-@interface SXTLiveChatViewController ()
+@interface SXTLiveChatViewController()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UIButton *yinPiaoBtn;
@@ -18,7 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *peopleCountLB;
 @property (nonatomic, strong) dispatch_source_t timer;
 @property (nonatomic, strong) UIButton *focusBtn;
-
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *datasource;
 
 @end
 
@@ -57,7 +60,49 @@
     } repeats:YES];
     
     [self initTimer];
+    [self setupData];
     [self setupUIView];
+    [self setupTableView];
+}
+
+- (void)setupData {
+    _datasource = [[NSMutableArray alloc] init];
+    SXTCommentModel *model1 = [[SXTCommentModel alloc] init];
+    model1.userName = @"幽灵蛛";
+    model1.userComment = @"我点亮了！";
+    [_datasource addObject:model1];
+    
+    SXTCommentModel *model2 = [[SXTCommentModel alloc] init];
+    model2.userName = @"兔崽子";
+    model2.userComment = @"好卡哦！";
+    [_datasource addObject:model2];
+    
+    SXTCommentModel *model3 = [[SXTCommentModel alloc] init];
+    model3.userName = @"动乱之根本";
+    model3.userComment = @"好漂亮！";
+    [_datasource addObject:model3];
+    
+    SXTCommentModel *model4 = [[SXTCommentModel alloc] init];
+    model4.userName = @"就这样吧";
+    model4.userComment = @"我就想听歌！";
+    [_datasource addObject:model4];
+}
+
+- (void)setupTableView {
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:(UITableViewStylePlain)];
+    [self.view addSubview:_tableView];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [_tableView registerNib:[UINib nibWithNibName:@"SXTLiveChatTableViewCell" bundle:nil] forCellReuseIdentifier:@"SXTLiveChatTableViewCell"];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view.mas_bottom).offset(-50);
+        make.left.equalTo(self.view.mas_left);
+        make.height.equalTo(@(SCREEN_WIDTH/3));
+        make.width.equalTo(@(SCREEN_WIDTH*3/4));
+    }];
 }
 
 - (void)setupUIView {
@@ -80,17 +125,13 @@
 }
 
 - (void)initTimer {
-    
     //初始化心形动画
     self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
     dispatch_source_set_timer(self.timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0);
     dispatch_source_set_event_handler(self.timer, ^{
-        
         [self showMoreLoveAnimateFromView:self.shareButton addToView:self.view];
     });
     dispatch_resume(self.timer);
-    
-    
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -135,6 +176,30 @@
     } completion:^(BOOL finished) {
         [imageView removeFromSuperview];
     }];
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.datasource.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    SXTLiveChatTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SXTLiveChatTableViewCell"];
+    cell.commentModel = _datasource[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor clearColor];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    SXTCommentModel *comment = _datasource[indexPath.row];
+    CGFloat height = [SXTLiveChatTableViewCell cellHeightWithMsg:[NSString stringWithFormat:@"%@%@",comment.userName,comment.userComment]];
+    return height;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
 
 #pragma mark - Action
