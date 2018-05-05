@@ -44,11 +44,21 @@
         //接口验证
         __weak typeof(self) weakSelf = self;
         [SXTLoginHandler fogetPasswdWithAccount:self.account passwd:self.uPassworldLabel.text activateCode:self.YZM and:^(id obj) {
-            //直接登陆
-            [weakSelf showHint:@"登录成功"];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                weakSelf.view.window.rootViewController = [[SXTTabBarViewController alloc] init];
-            });
+            //判断登陆情况
+            if ([obj isEqualToString:@"0000"]) {
+                //成功
+                //直接登陆
+                [weakSelf showHint:@"登录成功"];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    weakSelf.view.window.rootViewController = [[SXTTabBarViewController alloc] init];
+                });
+            } else if ([obj isEqualToString:@"0001"]) {
+                //验证码错误
+                [self.view makeToast:@"验证码错误！" duration:1 position:CSToastPositionCenter];
+            } else if ([obj isEqualToString:@"0002"])  {
+                //修改密码失败
+                [self.view makeToast:@"位置错误！" duration:1 position:CSToastPositionCenter];
+            }
         } failed:^(id obj) {
             NSLog(@"%@",obj);
         }];

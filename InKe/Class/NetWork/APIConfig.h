@@ -41,6 +41,6 @@
 
 //云鲤直播后台登陆系统
 
-#define YL_LoginManger @"192.168.1.107:8080/TelecastApi"
+#define YL_LoginManger @"http://172.16.15.19:8080/TelecastApi"
 
 @end

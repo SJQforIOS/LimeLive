@@ -62,14 +62,27 @@
     } else {
         __weak typeof(self) weakSelf = self;
         [SXTLoginHandler resourceAccount:strAccount passwd:strPassWord activateCode:strYZM and:^(id obj) {
-            //存系统偏好设置
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:strAccount forKey:@"userName"];
-            [defaults setObject:strPassWord forKey:@"userPass"];
-            [weakSelf showHint:@"登录成功"];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                weakSelf.view.window.rootViewController = [[SXTTabBarViewController alloc] init];
-            });
+            //判断登陆情况
+            if ([obj isEqualToString:@"0000"]) {
+                //成功
+                //存系统偏好设置
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                [defaults setObject:strAccount forKey:@"userName"];
+                [defaults setObject:strPassWord forKey:@"userPass"];
+                [weakSelf showHint:@"登录成功"];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    weakSelf.view.window.rootViewController = [[SXTTabBarViewController alloc] init];
+                });
+            } else if ([obj isEqualToString:@"0001"]) {
+                //验证码错误
+                [self.view makeToast:@"验证码错误！" duration:1 position:CSToastPositionCenter];
+            } else if ([obj isEqualToString:@"0002"])  {
+                //注册失败
+                [self.view makeToast:@"位置错误！" duration:1 position:CSToastPositionCenter];
+            } else if ([obj isEqualToString:@"0003"])  {
+                //账号已注册
+                [self.view makeToast:@"账号已注册！" duration:1 position:CSToastPositionCenter];
+            }
         } failed:^(id obj) {
             NSLog(@"%@",obj);
         }];
