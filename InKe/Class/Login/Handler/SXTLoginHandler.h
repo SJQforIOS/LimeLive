@@ -50,6 +50,37 @@
  */
 + (void)checkAccountExist:(NSString *)account and:(SuccessBlock)success failed:(FailedBlock)failed;
 
+/**
+ 获取用户详细信息
+
+ @param email 用户邮箱
+ */
++ (void)getUserDetailWithEmail:(NSString *)email and:(SuccessBlock)success failed:(FailedBlock)failed;
+
+/**
+ 获取关注列表
+
+ @param email 用户邮箱
+ */
++ (void)getFocusUserListWithEmail:(NSString *)email and:(SuccessBlock)success failed:(FailedBlock)failed;
+/**
+ 获取粉丝列表
+ 
+ @param email 用户邮箱
+ */
++ (void)getFensiUserListWithEmail:(NSString *)email and:(SuccessBlock)success failed:(FailedBlock)failed;
+
+/**
+ 修改个人信息
+
+ @param email 用户邮箱
+ @param phone 绑定号码
+ @param myname 昵称
+ @param gps 城市
+ @param sex 性别
+ @param birth 生日
+ */
++ (void)changeUserDetailWithEmail:(NSString *)email andPhone:(NSString *)phone andMyName:(NSString *)myname andGps:(NSString *)gps andSex:(int)sex andBirth:(NSString *)birth;
 
 
 @end

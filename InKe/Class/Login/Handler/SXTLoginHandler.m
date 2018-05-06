@@ -113,4 +113,36 @@
     
 }
 
++ (void)getUserDetailWithEmail:(NSString *)email and:(SuccessBlock)success failed:(FailedBlock)failed {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    // 以二进制方式来传输
+    manager.responseSerializer = [AFCompoundResponseSerializer serializer];
+    // 可以接受的类型 (可选)
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/plain", nil];
+    
+    NSString *utf = [[NSString stringWithFormat:@"%@/revisePassword",YL_LoginManger] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    //入参
+    NSDictionary *dic = @{@"email": email,
+                          };
+    [manager GET:utf parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSString *code = [dic objectForKey:@"code"];
+        success(code);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failed(error);
+    }];
+}
+
++ (void)getFocusUserListWithEmail:(NSString *)email and:(SuccessBlock)success failed:(FailedBlock)failed {
+    
+}
+
++ (void)getFensiUserListWithEmail:(NSString *)email and:(SuccessBlock)success failed:(FailedBlock)failed {
+    
+}
+
++ (void)changeUserDetailWithEmail:(NSString *)email andPhone:(NSString *)phone andMyName:(NSString *)myname andGps:(NSString *)gps andSex:(int)sex andBirth:(NSString *)birth {
+    
+}
+
 @end

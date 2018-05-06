@@ -79,7 +79,6 @@
     model.sex = 1;
     model.liveTimes = 1.5;
     self.miaoModel = model;
-    
 }
 
 #pragma mark - UITableViewDataSource
@@ -290,10 +289,6 @@
 //    _myHeadPortrait.image = newPhoto;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

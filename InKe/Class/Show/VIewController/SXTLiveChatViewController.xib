@@ -14,6 +14,7 @@
                 <outlet property="iconView" destination="IMe-gZ-KqE" id="bcq-za-HZm"/>
                 <outlet property="peopleCountLB" destination="44e-fT-loC" id="6KM-kV-fbA"/>
                 <outlet property="shareButton" destination="hMP-ed-SVc" id="kho-Av-KEy"/>
+                <outlet property="userCommentImageView" destination="g0s-Tw-add" id="hN0-td-2o7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

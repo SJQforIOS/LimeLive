@@ -101,6 +101,7 @@
 		E46AB84420692A9E00A62B10 /* SXTNearLiveCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E46AB84220692A9E00A62B10 /* SXTNearLiveCollectionViewCell.xib */; };
 		E46AB847206936A600A62B10 /* SXTNearModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E46AB846206936A600A62B10 /* SXTNearModel.m */; };
 		E46F772E209C39800035F174 /* SXTCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E46F772D209C39800035F174 /* SXTCommentModel.m */; };
+		E46F7731209EEE6D0035F174 /* XHInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E46F772F209EEE6D0035F174 /* XHInputView.m */; };
 		E46FCCF12098046B006227BD /* SXTUserRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FCCEF2098046B006227BD /* SXTUserRegisterViewController.m */; };
 		E46FCCF22098046B006227BD /* SXTUserRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E46FCCF02098046B006227BD /* SXTUserRegisterViewController.xib */; };
 		E46FCDE1209B0C86006227BD /* SXTLiveChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E46FCDDF209B0C85006227BD /* SXTLiveChatTableViewCell.m */; };
@@ -328,6 +329,8 @@
 		E46AB846206936A600A62B10 /* SXTNearModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTNearModel.m; sourceTree = "<group>"; };
 		E46F772C209C39800035F174 /* SXTCommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTCommentModel.h; sourceTree = "<group>"; };
 		E46F772D209C39800035F174 /* SXTCommentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTCommentModel.m; sourceTree = "<group>"; };
+		E46F772F209EEE6D0035F174 /* XHInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHInputView.m; sourceTree = "<group>"; };
+		E46F7730209EEE6D0035F174 /* XHInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHInputView.h; sourceTree = "<group>"; };
 		E46FCCEE2098046B006227BD /* SXTUserRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTUserRegisterViewController.h; sourceTree = "<group>"; };
 		E46FCCEF2098046B006227BD /* SXTUserRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTUserRegisterViewController.m; sourceTree = "<group>"; };
 		E46FCCF02098046B006227BD /* SXTUserRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTUserRegisterViewController.xib; sourceTree = "<group>"; };
@@ -1041,6 +1044,8 @@
 		E42E642B2057725A00962C2E /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				E46F7730209EEE6D0035F174 /* XHInputView.h */,
+				E46F772F209EEE6D0035F174 /* XHInputView.m */,
 				E42E648E2057777900962C2E /* UIImage+Utilities.h */,
 				E42E648D2057777900962C2E /* UIImage+Utilities.m */,
 				E42E648A2057766100962C2E /* NTESFileLocationHelper.h */,
@@ -1509,6 +1514,7 @@
 				E4368817206208CE0041E58E /* SXTSetLogoffTableViewCell.m in Sources */,
 				7334D40E1F6A9CF8000F670F /* NSObject+ALinHUD.m in Sources */,
 				E4AE86AD20665EDB00543D4F /* SXTNoLoginHeadView.m in Sources */,
+				E46F7731209EEE6D0035F174 /* XHInputView.m in Sources */,
 				E4AE869620661E0F00543D4F /* SXTRateViewController.m in Sources */,
 				7396D5731F6B6EF900F9278D /* NSURL+HMCategory.m in Sources */,
 				736FBFB01F680AD2002350F8 /* LFLivePreview.m in Sources */,

@@ -7,25 +7,41 @@
 //
 
 #import "SXTNearLiveChatViewController.h"
+#import "SXTLiveChatTableViewCell.h"
 
-@interface SXTNearLiveChatViewController ()
+@interface SXTNearLiveChatViewController ()<UITableViewDelegate,UITableViewDataSource,XHInputViewDelagete>
 
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UIButton *yinPiaoBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *shareButton;
 @property (weak, nonatomic) IBOutlet UILabel *peopleCountLB;
+@property (weak, nonatomic) IBOutlet UIImageView *userCommentImageView;
+
 @property (nonatomic, strong) dispatch_source_t timer;
+
+@property (nonatomic, strong) XHInputView *commentInputView;               //评论键盘
+@property (nonatomic, strong) UIButton *focusBtn;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *datasource;
 
 @end
 
 @implementation SXTNearLiveChatViewController
+
+- (XHInputView *)commentInputView {
+    if (!_commentInputView) {
+        _commentInputView = [self inputViewWithStyle:InputViewStyleDefault];
+        _commentInputView.delegate = self;
+        [self.view addSubview:_commentInputView];
+    }
+    return _commentInputView;
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     //隐藏nbv
     [self setNavigationBarWithType:FNNavationBarType_clear];
 }
-
 
 - (void)setNearModel:(SXTNearModel *)miaoboModel
 {
@@ -46,6 +62,74 @@
     } repeats:YES];
     
     [self initTimer];
+    [self setupData];
+    [self setupUIView];
+    [self setupTableView];
+}
+
+- (void)setupData {
+    _datasource = [[NSMutableArray alloc] init];
+    SXTCommentModel *model1 = [[SXTCommentModel alloc] init];
+    model1.userName = @"幽灵蛛";
+    model1.userComment = @"我点亮了！";
+    [_datasource addObject:model1];
+    
+    SXTCommentModel *model2 = [[SXTCommentModel alloc] init];
+    model2.userName = @"兔崽子";
+    model2.userComment = @"好卡哦！";
+    [_datasource addObject:model2];
+    
+    SXTCommentModel *model3 = [[SXTCommentModel alloc] init];
+    model3.userName = @"动乱之根本";
+    model3.userComment = @"好漂亮！";
+    [_datasource addObject:model3];
+    
+    SXTCommentModel *model4 = [[SXTCommentModel alloc] init];
+    model4.userName = @"就这样吧";
+    model4.userComment = @"我就想听歌！";
+    [_datasource addObject:model4];
+    
+    SXTCommentModel *model5 = [[SXTCommentModel alloc] init];
+    model5.userName = @"七天";
+    model5.userComment = @"周杰伦新歌发布会！！！！！";
+    [_datasource addObject:model5];
+}
+
+- (void)setupTableView {
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:(UITableViewStylePlain)];
+    [self.view addSubview:_tableView];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [_tableView registerNib:[UINib nibWithNibName:@"SXTLiveChatTableViewCell" bundle:nil] forCellReuseIdentifier:@"SXTLiveChatTableViewCell"];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view.mas_bottom).offset(-50);
+        make.left.equalTo(self.view.mas_left);
+        make.height.equalTo(@(SCREEN_WIDTH/3));
+        make.width.equalTo(@(SCREEN_WIDTH*3/4));
+    }];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.datasource.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+}
+
+- (void)setupUIView {
+    _focusBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    [self.view addSubview:_focusBtn];
+    _focusBtn.frame = CGRectMake(105, 34, 48, 24);
+    _focusBtn.backgroundColor = UIColorFromRGB(0x2EDED0);
+    _focusBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    _focusBtn.layer.cornerRadius = 10;
+    [_focusBtn setTitle:@"关注" forState:(UIControlStateNormal)];
+    [_focusBtn setTitle:@"已关注" forState:(UIControlStateSelected)];
+    [_focusBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_focusBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    [_focusBtn addTarget:self action:@selector(focusActionss:) forControlEvents:(UIControlEventTouchUpInside)];
+    
+    UITapGestureRecognizer *imageViewTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(commentAction)];
+    // 2. 将点击事件添加到label上
+    [_userCommentImageView addGestureRecognizer:imageViewTapGestureRecognizer];
+    _userCommentImageView.userInteractionEnabled = YES; // 可以理解为设置imageview可被点击
 }
 
 -(int)getRandomNumber:(int)from to:(int)to {
@@ -102,6 +186,91 @@
     } completion:^(BOOL finished) {
         [imageView removeFromSuperview];
     }];
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.datasource.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    SXTLiveChatTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SXTLiveChatTableViewCell"];
+    cell.commentModel = _datasource[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor clearColor];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    SXTCommentModel *comment = _datasource[indexPath.row];
+    CGFloat height = [SXTLiveChatTableViewCell cellHeightWithMsg:[NSString stringWithFormat:@"%@%@",comment.userName,comment.userComment]];
+    return height;
+}
+
+#pragma mark - Action
+
+- (void)commentAction {
+    //点击评论按钮
+    NSString *account = [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
+    if (account.length > 0) {
+        [self.commentInputView show];
+    } else {
+        [self.view makeToast:@"请登录！" duration:1 position:CSToastPositionCenter];
+    }
+    [self.commentInputView show];
+}
+
+- (void)focusActionss:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        [self.view makeToast:@"已关注" duration:1 position:CSToastPositionCenter];
+    } else {
+        [self.view makeToast:@"已取消关注" duration:1 position:CSToastPositionCenter];
+    }
+}
+
+#pragma mark - XHInputViewDelagete
+/**
+ XHInputView 将要显示
+ */
+-(void)xhInputViewWillShow:(XHInputView *)inputView {
+}
+
+/**
+ XHInputView 将要影藏
+ */
+-(void)xhInputViewWillHide:(XHInputView *)inputView {
+    
+}
+
+-(XHInputView *)inputViewWithStyle:(InputViewStyle)style{
+    
+    XHInputView *inputView = [[XHInputView alloc] initWithStyle:style];
+    //设置最大输入字数
+    inputView.maxCount = 50;
+    //输入框颜色
+    inputView.textViewBackgroundColor = [UIColor groupTableViewBackgroundColor];
+    //占位符
+    inputView.placeholder = @"发点有爱评论吧！";
+    inputView.sendButtonBackgroundColor = RGB(0, 216, 201);
+    inputView.sendButtonCornerRadius = 2.0;
+    return inputView;
+}
+
+- (void)clickCompleteBtn:(XHInputView *)inputView andStr:(NSString *)str {
+    [self.commentInputView hide];//隐藏输入框
+    SXTCommentModel *model = [[SXTCommentModel alloc] init];
+    NSString *account = [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
+    if (account.length > 0) {
+        model.userName = account;
+    } else {
+        model.userName = @"我是大魔王啊我看看";
+    }
+    model.userComment = str;
+    [_datasource addObject:model];
+    [self.tableView reloadData];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.datasource.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 /*
