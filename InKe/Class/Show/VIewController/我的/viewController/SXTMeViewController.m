@@ -15,6 +15,8 @@
 #import "SXTLoginViewController.h"
 #import "SXTMeFansViewController.h"
 #import "SXTMeFocuseViewController.h"
+#import "SXTMiaoBoModel.h"
+#import "SXTLoginHandler.h"
 
 @interface SXTMeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -23,6 +25,7 @@
 @property (nonatomic, strong) NSArray *datasource;
 @property (nonatomic, strong) SXTNoLoginHeadView *headLoginView;
 @property (nonatomic, assign) BOOL isLogin;
+@property (nonatomic, strong) SXTMiaoBoModel *userModel;
 
 @end
 
@@ -45,12 +48,18 @@
 
 - (void)setupData
 {
-    _datasource = @[@[@{ @"icon":@"ic_my_readingrecord",@"title":@"观看记录"}],@[@{ @"icon":@"ic_my_readingrecord",@"title":@"设置"}]];
+    _datasource = @[@[@{ @"icon":@"ic_my_readingrecord",@"title":@"观看记录"}],@[@{ @"icon":@"ic_my_setting",@"title":@"设置"}]];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *usertName = [defaults objectForKey:@"userName"];
     //NSString *userPass = [defaults objectForKey:@"userPass"];
     _isLogin = usertName.length != 0;
+    
+//    [SXTLoginHandler getUserDetailWithEmail:usertName and:^(id obj) {
+//
+//    } failed:^(id obj) {
+//
+//    }];
 }
 
 - (void)initUI
@@ -82,7 +91,6 @@
     __weak typeof(self) weakSelf = self;
     _headView.editUsrBlock = ^{
         SXTEditUserViewController *editVC = [[SXTEditUserViewController alloc] init];
-//        weakSelf.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
         [weakSelf.navigationController pushViewController:editVC animated:YES];
     };
     

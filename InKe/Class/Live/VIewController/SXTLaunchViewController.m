@@ -8,8 +8,10 @@
 
 #import "SXTLaunchViewController.h"
 #import "LFLivePreview.h"
+#import "SXTCommentModel.h"
+#import "SXTLiveChatTableViewCell.h"
 
-@interface SXTLaunchViewController ()
+@interface SXTLaunchViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 @property (weak, nonatomic) IBOutlet UIButton *startLiveBtn;
@@ -22,6 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.bgImageView.image = [UIImage imageNamed:@"bg_zbfx"];
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (IBAction)closeLanch:(id)sender {
@@ -40,8 +43,6 @@
     //开启直播
     //[preView startLive];
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

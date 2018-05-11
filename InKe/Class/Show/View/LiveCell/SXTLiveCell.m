@@ -33,7 +33,7 @@
     if ([live.creator.portrait isEqualToString:@"test_touxiang"]) {
         
         self.headView.image = [UIImage imageNamed:@"test_touxiang"];
-        self.bigImageView.image = [UIImage imageNamed:@"test_fenmian"];
+        self.bigImageView.image = [UIImage imageNamed:@"test_dog"];
         
     }
 }
@@ -48,7 +48,7 @@
     
     if ([miaobo.smallpic isEqualToString:@"test_touxiang"]) {
         self.headView.image = [UIImage imageNamed:@"test_touxiang"];
-        self.bigImageView.image = [UIImage imageNamed:@"test_fenmian"];
+        self.bigImageView.image = [UIImage imageNamed:@"test_dog"];
     }else {
         [self.headView downloadImage:[NSString stringWithFormat:@"%@",miaobo.smallpic] placeholder:@"default_room"];
         [self.bigImageView downloadImage:[NSString stringWithFormat:@"%@",miaobo.bigpic] placeholder:@"default_room"];

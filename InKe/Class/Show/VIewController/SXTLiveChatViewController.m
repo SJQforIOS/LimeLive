@@ -71,6 +71,12 @@
 
 - (void)setupData {
     _datasource = [[NSMutableArray alloc] init];
+    
+    SXTCommentModel *model11 = [[SXTCommentModel alloc] init];
+    model11.userName = @"系统消息";
+    model11.userComment = @"青柠提倡绿色直播，对于封面和直播内容违规的主播官方将给予严重处罚，严重私下货币交易，如遇纷争，概不负责";
+    [_datasource addObject:model11];
+    
     SXTCommentModel *model1 = [[SXTCommentModel alloc] init];
     model1.userName = @"幽灵蛛";
     model1.userComment = @"我点亮了！";
@@ -88,12 +94,12 @@
     
     SXTCommentModel *model4 = [[SXTCommentModel alloc] init];
     model4.userName = @"就这样吧";
-    model4.userComment = @"我就想听歌！";
+    model4.userComment = @"我就想听歌";
     [_datasource addObject:model4];
     
     SXTCommentModel *model5 = [[SXTCommentModel alloc] init];
     model5.userName = @"七天";
-    model5.userComment = @"周杰伦新歌发布会！！！！！";
+    model5.userComment = @"主播好漂亮";
     [_datasource addObject:model5];
 }
 
@@ -302,7 +308,6 @@
 }
 
 -(XHInputView *)inputViewWithStyle:(InputViewStyle)style{
-    
     XHInputView *inputView = [[XHInputView alloc] initWithStyle:style];
     //设置最大输入字数
     inputView.maxCount = 50;

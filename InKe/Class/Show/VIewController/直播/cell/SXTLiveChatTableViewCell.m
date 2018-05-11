@@ -33,6 +33,7 @@
                           range:NSMakeRange(commentModel.userName.length+1, commentModel.userComment.length)];
     //设置label的富文本属性
     _bodyLabel.attributedText = attributedStr;
+    _bodyLabel.numberOfLines = 0;
 }
 
 + (CGFloat)cellHeightWithMsg:(NSString *)msg {

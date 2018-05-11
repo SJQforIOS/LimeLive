@@ -19,16 +19,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="390" height="103.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="兔崽子" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOl-x1-kKq">
-                        <rect key="frame" x="20" y="11" width="49" height="19.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="兔崽子" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOl-x1-kKq">
+                        <rect key="frame" x="20" y="11" width="350" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="VOl-x1-kKq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Gq2-a7-vZF"/>
                     <constraint firstItem="VOl-x1-kKq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="hKG-jc-heq"/>
                     <constraint firstItem="VOl-x1-kKq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="yoW-k6-a48"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="VOl-x1-kKq" secondAttribute="trailing" id="z0d-fR-Zrz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

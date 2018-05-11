@@ -10,9 +10,10 @@
 #import "UIControl+YYAdd.h"
 #import "UIView+YYAdd.h"
 #import "LFLiveKit.h"
+#import "SXTCommentModel.h"
+#import "SXTLiveChatTableViewCell.h"
 
-
-@interface LFLivePreview ()<LFLiveSessionDelegate>
+@interface LFLivePreview ()<LFLiveSessionDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UIButton *beautyButton;
 @property (nonatomic, strong) UIButton *cameraButton;
@@ -22,6 +23,9 @@
 @property (nonatomic, strong) LFLiveDebug *debugInfo;
 @property (nonatomic, strong) LFLiveSession *session;
 @property (nonatomic, strong) UILabel *stateLabel;
+
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *datasource;
 
 @end
 
@@ -39,8 +43,61 @@
         [self.containerView addSubview:self.cameraButton];
         [self.containerView addSubview:self.beautyButton];
         [self.containerView addSubview:self.startLiveButton];
+        
+        [self setupData];
+        [self setupTableView];
     }
     return self;
+}
+
+- (void)setupData {
+    _datasource = [[NSMutableArray alloc] init];
+    SXTCommentModel *model11 = [[SXTCommentModel alloc] init];
+    model11.userName = @"系统消息";
+    model11.userComment = @"青柠提倡绿色直播，对于封面和直播内容违规的主播官方将给予严重处罚，严重私下货币交易，如遇纷争，概不负责";
+    [_datasource addObject:model11];
+    
+    SXTCommentModel *model1 = [[SXTCommentModel alloc] init];
+    model1.userName = @"小和尚";
+    model1.userComment = @"主播终于开播了呀";
+    [_datasource addObject:model1];
+}
+
+- (void)setupTableView {
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:(UITableViewStylePlain)];
+    [self addSubview:_tableView];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [_tableView registerNib:[UINib nibWithNibName:@"SXTLiveChatTableViewCell" bundle:nil] forCellReuseIdentifier:@"SXTLiveChatTableViewCell"];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.mas_bottom).offset(-50);
+        make.left.equalTo(self.mas_left);
+        make.height.equalTo(@(SCREEN_WIDTH/3));
+        make.width.equalTo(@(SCREEN_WIDTH*3/4));
+    }];
+    _tableView.hidden = YES;
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.datasource.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    SXTLiveChatTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SXTLiveChatTableViewCell"];
+    cell.commentModel = _datasource[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor clearColor];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    SXTCommentModel *comment = _datasource[indexPath.row];
+    CGFloat height = [SXTLiveChatTableViewCell cellHeightWithMsg:[NSString stringWithFormat:@"%@%@",comment.userName,comment.userComment]];
+    return height;
 }
 
 #pragma mark -- Public Method
@@ -291,11 +348,12 @@
         @weakify(self);
         [_closeButton addBlockForControlEvents:UIControlEventTouchUpInside block:^(id sender) {
             @strongify(self);
-            
-            [self stopLive];
-            [self.vc dismissViewControllerAnimated:YES completion:nil];
-            
-            
+            [FNAlertHelper showAlertWithTitle:@"确定结束直播？" msg:@"" chooseBlock:^(NSInteger buttonIdx) {
+                if (buttonIdx == 1) {
+                    [self stopLive];
+                    [self.vc dismissViewControllerAnimated:YES completion:nil];
+                }
+            } buttonsStatement:@"取消", @"确定", nil];
         }];
     }
     return _closeButton;
@@ -353,15 +411,15 @@
             _self.startLiveButton.selected = !_self.startLiveButton.selected;
             if (_self.startLiveButton.selected) {
                 [_self.startLiveButton setTitle:@"结束直播" forState:UIControlStateNormal];
-                
+                _self.startLiveButton.hidden = YES;
+                _self.tableView.hidden = NO;
                 //开启直播
                 LFLiveStreamInfo *stream = [LFLiveStreamInfo new];
                 stream.url = Live_SJQ;
                 [_self.session startLive:stream];
-                
             } else {
                 [_self.startLiveButton setTitle:@"开始直播" forState:UIControlStateNormal];
-                
+                _self.startLiveButton.hidden = NO;
                 //结束直播
                 [_self.session stopLive];
             }
