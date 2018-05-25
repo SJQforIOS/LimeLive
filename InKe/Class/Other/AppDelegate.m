@@ -120,7 +120,7 @@
 - (void)networkChange
 {
     if (![UVNetworkHelper isWWAN]) {
-         [[[UIAlertView alloc] initWithTitle:@"我家直播" message:@"非wifi状态" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil, nil] show];
+         [[[UIAlertView alloc] initWithTitle:@"青柠直播" message:@"非wifi状态" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil, nil] show];
     }
     
 }

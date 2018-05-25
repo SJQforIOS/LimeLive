@@ -59,23 +59,23 @@
     _dataSource = [[NSMutableArray alloc] init];
     SXTMiaoBoModel *model1 = [[SXTMiaoBoModel alloc] init];
     model1.smallpic = @"test_touxiang";
-    model1.myname = @"好看哎";
+    model1.myname = @"粉丝1";
     model1.sex = 0;
-    model1.signatures = @"这是谁的世界？";
+    model1.signatures = @"大爱胡歌";
     [_dataSource addObject:model1];
     
     SXTMiaoBoModel *model2 = [[SXTMiaoBoModel alloc] init];
     model2.smallpic = @"test_touxiang";
-    model2.myname = @"我是二号二号为何物";
+    model2.myname = @"粉丝2";
     model2.sex = 1;
-    model2.signatures = @"";
+    model2.signatures = @"也许就是呀";
     [_dataSource addObject:model2];
     
     SXTMiaoBoModel *model3 = [[SXTMiaoBoModel alloc] init];
     model3.smallpic = @"test_touxiang";
-    model3.myname = @"缘起缘灭";
+    model3.myname = @"粉丝3";
     model3.sex = 1;
-    model3.signatures = @"动乱";
+    model3.signatures = @"哈哈";
     [_dataSource addObject:model3];
 }
 

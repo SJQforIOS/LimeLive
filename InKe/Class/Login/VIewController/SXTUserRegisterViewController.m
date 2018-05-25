@@ -41,15 +41,13 @@
 
 - (IBAction)YZMBtn:(id)sender {
     NSString *email = _account.text;
-    
     [SXTLoginHandler sendActivateCode:email and:^(id obj) {
         NSLog(@"%@",obj);
-        
+        [self.view makeToast:@"验证码已发送！" duration:1 position:CSToastPositionCenter];
     } failed:^(id obj) {
         NSLog(@"%@",obj);
     }];
 }
-
 
 - (IBAction)completeAction:(id)sender {
     NSString *strAccount = _account.text;

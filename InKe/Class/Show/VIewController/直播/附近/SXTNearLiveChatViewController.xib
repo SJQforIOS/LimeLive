@@ -99,7 +99,7 @@
                         <constraint firstAttribute="height" constant="20" id="oKY-g0-bHH"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="映票 12000" backgroundImage="mg_room_映票_底">
+                    <state key="normal" title="青柠豆豆 120" backgroundImage="mg_room_映票_底">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>

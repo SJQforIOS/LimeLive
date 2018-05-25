@@ -31,14 +31,10 @@
     self.onLineLabel.text = [@(live.onlineUsers) stringValue];
     
     if ([live.creator.portrait isEqualToString:@"test_touxiang"]) {
-        
         self.headView.image = [UIImage imageNamed:@"test_touxiang"];
         self.bigImageView.image = [UIImage imageNamed:@"test_dog"];
-        
     }
 }
-
-
 
 - (void)setViewForMiaoBo:(SXTMiaoBoModel *)miaobo
 {
@@ -55,14 +51,9 @@
     }
 }
 
-
-
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

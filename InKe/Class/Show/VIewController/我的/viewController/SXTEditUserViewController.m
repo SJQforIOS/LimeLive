@@ -56,7 +56,6 @@
     UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 15)];
     headView.backgroundColor = UIColorFromRGB(0xF8F5F6);
     
-    
     _tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64) style:(UITableViewStylePlain)];
     [self.view addSubview:_tableview];
     _tableview.delegate = self;
@@ -71,13 +70,12 @@
 - (void)setupData
 {
     _datasource = @[@[@"头像"],@[@"昵称",@"ID",@"性别",@"个性签名"],@[@"直播时长",@"实名认证",@"绑定手机"]];
-    
     SXTMiaoBoModel *model = [[SXTMiaoBoModel alloc] init];
-    model.myname = @"你比星光还要遥远";
+    model.myname = [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
     model.signatures = @"我只想拥有挽留你的能力";
-    model.userId  = @"123456";
+    model.userId  = @"123";
     model.sex = 1;
-    model.liveTimes = 1.5;
+    model.liveTimes = 12;
     self.miaoModel = model;
 }
 

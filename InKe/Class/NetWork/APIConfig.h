@@ -32,7 +32,10 @@
 
 
 //测试直播地址
-#define Live_SJQ @"rtmp://p68ed453b.live.126.net/live/sjq"
+#define Live_SJQ @"rtmp://vdl75249abe.live.126.net/live/837f83a024ce42ca92a59ee74f36ddbc"
+
+//rtmp://p68ed453b.live.126.net/live/484ff1cfe86a496799f6548b7febd29d?wsSecret=cedf71973e8fd4e3f68f8ba418eab01c&wsTime=1516673905
+//rtmp://p68ed453b.live.126.net/live/sjq
 
 //ceshi
 //rtmp://live.hkstv.hk.lxdns.com/live/hks

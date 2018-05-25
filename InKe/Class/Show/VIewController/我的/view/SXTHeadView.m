@@ -66,7 +66,7 @@
     [self.bodyView addSubview:_niceNameLabel];
     _niceNameLabel.font = [UIFont systemFontOfSize:18];
     _niceNameLabel.textColor = [UIColor blackColor];
-    _niceNameLabel.text = @"你比星光还要遥远";
+    _niceNameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
     
     _userIdLabel = [[UILabel alloc] init];
     [self.bodyView addSubview:_userIdLabel];

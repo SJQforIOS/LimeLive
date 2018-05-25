@@ -76,31 +76,6 @@
     model11.userName = @"系统消息";
     model11.userComment = @"青柠提倡绿色直播，对于封面和直播内容违规的主播官方将给予严重处罚，严重私下货币交易，如遇纷争，概不负责";
     [_datasource addObject:model11];
-    
-    SXTCommentModel *model1 = [[SXTCommentModel alloc] init];
-    model1.userName = @"幽灵蛛";
-    model1.userComment = @"我点亮了！";
-    [_datasource addObject:model1];
-    
-    SXTCommentModel *model2 = [[SXTCommentModel alloc] init];
-    model2.userName = @"兔崽子";
-    model2.userComment = @"好卡哦！";
-    [_datasource addObject:model2];
-    
-    SXTCommentModel *model3 = [[SXTCommentModel alloc] init];
-    model3.userName = @"动乱之根本";
-    model3.userComment = @"好漂亮！";
-    [_datasource addObject:model3];
-    
-    SXTCommentModel *model4 = [[SXTCommentModel alloc] init];
-    model4.userName = @"就这样吧";
-    model4.userComment = @"我就想听歌";
-    [_datasource addObject:model4];
-    
-    SXTCommentModel *model5 = [[SXTCommentModel alloc] init];
-    model5.userName = @"七天";
-    model5.userComment = @"主播好漂亮";
-    [_datasource addObject:model5];
 }
 
 - (void)setupTableView {

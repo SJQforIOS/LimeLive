@@ -63,29 +63,37 @@
         [self.view makeToast:@"请输入密码！" duration:1 position:CSToastPositionCenter];
     } else {
         __weak typeof(self) weakSelf = self;
+        //存系统偏好设置
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:self.account forKey:@"userName"];
+        [defaults setObject:self.passwordLabel.text forKey:@"userPass"];
+        [weakSelf showHint:@"登录成功"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            weakSelf.view.window.rootViewController = [[SXTTabBarViewController alloc] init];
+        });
         //登陆接口验证
-        [SXTLoginHandler loginAccount:self.account passwd:self.passwordLabel.text and:^(id obj) {
-            //判断登陆情况
-            if ([obj isEqualToString:@"0000"]) {
-                //成功
-                //存系统偏好设置
-                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-                [defaults setObject:self.account forKey:@"userName"];
-                [defaults setObject:self.passwordLabel.text forKey:@"userPass"];
-                [weakSelf showHint:@"登录成功"];
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    weakSelf.view.window.rootViewController = [[SXTTabBarViewController alloc] init];
-                });
-            } else if ([obj isEqualToString:@"0001"]) {
-                //用户不存在
-                [self.view makeToast:@"用户不存在！" duration:1 position:CSToastPositionCenter];
-            } else if ([obj isEqualToString:@"0002"])  {
-                //密码错误
-                [self.view makeToast:@"密码错误！" duration:1 position:CSToastPositionCenter];
-            }
-        } failed:^(id obj) {
-            NSLog(@"%@",obj);
-        }];
+//        [SXTLoginHandler loginAccount:self.account passwd:self.passwordLabel.text and:^(id obj) {
+//            //判断登陆情况
+//            if ([obj isEqualToString:@"0000"]) {
+//                //成功
+//                //存系统偏好设置
+//                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//                [defaults setObject:self.account forKey:@"userName"];
+//                [defaults setObject:self.passwordLabel.text forKey:@"userPass"];
+//                [weakSelf showHint:@"登录成功"];
+//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                    weakSelf.view.window.rootViewController = [[SXTTabBarViewController alloc] init];
+//                });
+//            } else if ([obj isEqualToString:@"0001"]) {
+//                //用户不存在
+//                [self.view makeToast:@"用户不存在！" duration:1 position:CSToastPositionCenter];
+//            } else if ([obj isEqualToString:@"0002"])  {
+//                //密码错误
+//                [self.view makeToast:@"密码错误！" duration:1 position:CSToastPositionCenter];
+//            }
+//        } failed:^(id obj) {
+//            NSLog(@"%@",obj);
+//        }];
     }
 }
 
